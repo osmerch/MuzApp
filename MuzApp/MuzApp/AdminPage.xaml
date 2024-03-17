@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuzApp.AdminPage" 
             NavigationPage.HasNavigationBar="False"
-         SelectedTabColor="#005c5c"
+            SelectedTabColor="White"
+            BarTextColor="White"
+            BarBackgroundColor="#4f3129"
          xmlns:local="clr-namespace:MuzApp"
          xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
          android:TabbedPage.ToolbarPlacement="Bottom">

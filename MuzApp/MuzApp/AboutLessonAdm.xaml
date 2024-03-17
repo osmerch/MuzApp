@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             
+             x:Class="MuzApp.AboutLessonAdm">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <StackLayout x:Name="one"  Margin="40">
+                    <Label x:Name="name" Text="{Binding Subject}" FontSize="16" HorizontalTextAlignment="Start"/>
+                    <Label Text="Педагог:" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
+                    <Label x:Name="autor" Text="{Binding Teacher}" FontSize="16" HorizontalTextAlignment="Start"/>
+                    <Label Text="Время" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
+                    <Label Text="{Binding Time}"></Label>
+                    <Label Text="Дата:" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
+                    <Label x:Name="desc" Text="{Binding Date}" FontSize="16" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+                <StackLayout   x:Name="two" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button FontSize="14"  CornerRadius="50" BackgroundColor="#005c5c" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" TextColor="White" Text="   Удалить занятие  "/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

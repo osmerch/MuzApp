@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="MuzApp.RegPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+
+                <Entry Placeholder="Логин" Margin="10" x:Name="Log"/>
+                <Entry Placeholder="Пароль" Margin="10" x:Name="Pas"/>
+                <Entry Placeholder="Повторите пароль" Margin="10" x:Name="PasRep"/>
+                <Entry Placeholder="Email" Margin="10" x:Name="EmailText"/>
+                <Entry Placeholder="Имя" Margin="10" x:Name="NameText"/>
+                <Entry Placeholder="Фамилия" Margin="10" x:Name="SurnameText"/>
+                <Button TextColor="White" CornerRadius="50" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
+                <Button TextColor="White" CornerRadius="50" WidthRequest="200" Text="Назад ко входу" FontSize="13" Clicked="EnterBtn_Clicked"  x:Name="EnterBtn"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

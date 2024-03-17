@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              NavigationPage.HasNavigationBar="False"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="MuzApp.AdminLessonPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.RowSpan="2" Background="#4f3129">
+                <Label Text="Расписание" VerticalOptions="Center" Margin="12 0 0 0"   HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
+            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout x:Name="admlessons" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
+                          SelectedItem="{Binding SelectedLesson, Mode=TwoWay}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Frame CornerRadius="20" BackgroundColor="#c9b0a1" HasShadow="True">
+                                        <StackLayout WidthRequest="340"  HorizontalOptions="Center">
+                                            <Label Text="{Binding Subject}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
+                                            <Label Text="{Binding Time}" TextColor="Black" FontSize="18"></Label>
+                                            <Label Text="{Binding Date}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding TeacherName}" TextColor="#4f3129" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+            <Button Grid.Row="1" android:Button.UseDefaultShadow="True" android:Button.UseDefaultPadding="True" Text="+" TextColor="White" BackgroundColor="#4f3129" CornerRadius="30" HorizontalOptions="End" Margin="0, 0, 10, 20" BorderColor="Black"    WidthRequest="70" HeightRequest="70" VerticalOptions="End" FontSize="30" Clicked="AddLesson_Clicked"  x:Name="AddLesson"></Button>
+        </Grid>
+      
+    </ContentPage.Content>
+</ContentPage>

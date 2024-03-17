@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.NewsPage">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="admnews" VerticalOptions="FillAndExpand" Margin="10">
+                <Button Text="Добавить" TextColor="White" CornerRadius="50" WidthRequest="100" FontSize="13" Clicked="AddNew_Clicked"  x:Name="AddNew"></Button>
+                <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
+                                SelectedItem="{Binding SelectedNew, Mode=TwoWay}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout HorizontalOptions="Center" BackgroundColor="LightGray" Margin="10">
+                                <Label Text="{Binding Title}" FontSize="19" TextColor="Black"></Label>
+                                <Label Text="{Binding Description}" TextColor="Black"></Label>
+                                <Label Text="{Binding Date}" TextColor="Black"></Label>
+                                <Label Text="{Binding Time}" TextColor="Black"></Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

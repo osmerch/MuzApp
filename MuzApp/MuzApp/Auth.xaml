@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="MuzApp.Auth">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Margin="10" Source="String1" WidthRequest="80" HeightRequest="80" x:Name="im1"></Image>
+            <Entry Placeholder="Логин" Margin="10" x:Name="Log"/>
+            <Entry Placeholder="Пароль" Margin="10" x:Name="Pas"/>
+            <Button TextColor="White" CornerRadius="50" WidthRequest="200" Text="Войти" FontSize="13" Clicked="Ren2_Clicked"  x:Name="Ren2"/>
+            <Button TextColor="White" CornerRadius="50" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Ren3_Clicked"  x:Name="Ren3"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

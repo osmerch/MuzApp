@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuzApp.Android", "MuzApp\MuzApp.Android\MuzApp.Android.csproj", "{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuzApp", "MuzApp\MuzApp\MuzApp.csproj", "{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BFC050E-FA60-41E6-A633-1F7F83C1EF27}
+	EndGlobalSection
+EndGlobal

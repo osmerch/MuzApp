@@ -4,9 +4,14 @@
              x:Class="MuzApp.AddNew">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="title1" Placeholder="Заголовок"></Entry>
-            <Entry x:Name="imgsrc" Placeholder="Url изображения"></Entry>
-            <Editor x:Name="descTExt" Placeholder="Описание"></Editor>
+            <Label Text="Заголовок"></Label>
+            <Entry x:Name="title1"></Entry>
+            
+            <Label Text="Ссылка на изображение"></Label>
+            <Entry x:Name="imgsrc"></Entry>
+
+            <Label Text="Описание новости"></Label>
+            <Editor x:Name="descTExt" HeightRequest="200"></Editor>
             <Button x:Name="AddBtn"  FontSize="14" Text="Добавить" Clicked="AddBtn_Clicked"  CornerRadius="50" BackgroundColor="#005c5c" TextColor="White"></Button>
         </StackLayout>
     </ContentPage.Content>

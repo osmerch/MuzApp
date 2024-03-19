@@ -2,23 +2,55 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             
              x:Class="MuzApp.LessonsPage">
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout x:Name="lessons" VerticalOptions="FillAndExpand" Margin="10">
-                <CollectionView x:Name="ItemColl" SelectionMode="Single">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout HorizontalOptions="Center" BackgroundColor="LightGray" Margin="10">
-                                <Label Text="Сольфеджио" FontSize="19" TextColor="Black"></Label>
-                                <Label Text="12:30" TextColor="Black"></Label>
-                                <Label Text="Мирзаянова Э.Б." TextColor="Black"></Label>
-                                <Label Text="Аудитория 124" TextColor="Black"></Label>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="55"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.RowSpan="2" VerticalOptions="Start" HeightRequest="51" Background="#4f3129">
+                <Label Text="Расписание" VerticalOptions="Center" Margin="0, 15, 0, 0"   HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
             </StackLayout>
-        </ScrollView>
+            <ScrollView Grid.Row="1" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout  Orientation="Horizontal">
+                    <Button x:Name="Btn" Clicked="Btn_Clicked"  BackgroundColor="#c9b0a1"  FontSize="14" Text="18.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                    <Button x:Name="Btn1" Clicked="Btn1_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="19.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                    <Button x:Name="Btn2" Clicked="Btn2_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="20.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                    <Button x:Name="Btn3" Clicked="Btn3_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="21.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                    <Button x:Name="Btn4" Clicked="Btn4_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="22.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                    <Button x:Name="Btn5" Clicked="Btn5_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="23.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                </StackLayout>
+            </ScrollView>
+
+            <ScrollView Grid.Row="2">
+                <StackLayout x:Name="admlessons" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
+                   SelectedItem="{Binding SelectedLesson, Mode=TwoWay}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Frame CornerRadius="20" BackgroundColor="#c9b0a1" HasShadow="True">
+                                        <StackLayout WidthRequest="340"  HorizontalOptions="Center">
+                                            <Label Text="{Binding Subject}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
+                                            <Label Text="{Binding Time}" TextColor="Black" FontSize="18"></Label>
+                                            <Label Text="{Binding Date}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding TeacherName}" TextColor="#4f3129" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

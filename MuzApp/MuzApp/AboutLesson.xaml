@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.AboutLesson">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <StackLayout x:Name="one"  Margin="20">
+                    <Label x:Name="name" TextColor="Black" FontAttributes="Bold" Text="{Binding Subject}" HorizontalOptions="Center" FontSize="24" HorizontalTextAlignment="Start"/>
+                    <Label Text="Это занятие будет вести преподаватель"  FontSize="20"  Margin="0, 20, 0, 0" HorizontalTextAlignment="Start"/>
+                    <Label x:Name="autor" Text="{Binding TeacherName}" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start"/>
+
+                    <Label Text="Время занятия"  FontSize="20"  Margin="0, 20, 0, 0" HorizontalTextAlignment="Start"/>
+                    <Label Text="{Binding Time}" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start"></Label>
+
+                    <Label Text="Дата занятия"  FontSize="20"  Margin="0, 20, 0, 0" HorizontalTextAlignment="Start"/>
+                    <Label x:Name="desc" Text="{Binding Date}" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.UserAboutNew">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <StackLayout x:Name="one"  Margin="20">
+                    <Image Source="{Binding Image}" HorizontalOptions="Center"></Image>
+                    <Label x:Name="name" Text="{Binding Title}" FontAttributes="Bold"  FontSize="24" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="desc" Text="{Binding Description}" FontSize="20" HorizontalTextAlignment="Start"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Дата публикации:" Margin="0, 40, 20, 0" FontSize="16" HorizontalTextAlignment="Start"/>
+                        <Label x:Name="datelabel" Text="{Binding Date}" Margin="0, 40, 0, 0" FontSize="16" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Time}" FontSize="16" Margin="0, 40, 0, 0"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.UserNewsPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.RowSpan="2" VerticalOptions="Start" HeightRequest="51" Background="#4f3129">
+                <Label Text="Новости" VerticalOptions="Center" Margin="0, 15, 0, 0"   HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
+            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout x:Name="admnews" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
+           SelectedItem="{Binding SelectedNew, Mode=TwoWay}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Frame CornerRadius="20" BackgroundColor="#c9b0a1" HasShadow="True">
+
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="24"></RowDefinition>
+                                                <RowDefinition Height="33"></RowDefinition>
+                                                <RowDefinition Height="20"></RowDefinition>
+                                                <RowDefinition Height="20"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Grid.Column="0" Grid.RowSpan="4" Source="{Binding Image}"></Image>
+                                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" FontSize="21" FontAttributes="Bold" TextColor="Black"></Label>
+                                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" TextColor="Black"></Label>
+                                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Date}" HorizontalOptions="End"  TextColor="Black"></Label>
+                                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time}" HorizontalOptions="Start" TextColor="Black"></Label>
+                                        </Grid>
+
+
+                                    </Frame>
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

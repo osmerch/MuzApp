@@ -25,7 +25,7 @@ namespace MuzApp
             MainPage = new Auth();
             MainPage = new NavigationPage(new Auth()) 
             {
-                BarBackgroundColor = Color.FromRgb(0, 92, 92)
+                BarBackgroundColor = Color.FromRgb(79, 49, 41)
             };
 
         }

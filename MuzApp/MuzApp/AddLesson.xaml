@@ -4,9 +4,29 @@
              x:Class="MuzApp.AddLesson">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="title1" Placeholder="Название"></Entry>
-            <Editor x:Name="teacherText" Placeholder="Препод"></Editor>
-            <Button x:Name="AddBtn"  FontSize="14" Text="Добавить" Clicked="AddBtn_Clicked"  CornerRadius="50" BackgroundColor="#005c5c" TextColor="White"></Button>
+            <Label Text="Добавить занятие" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+            <Label Text="Название занятия" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+            <Entry x:Name="title1" Margin="20, 0, 20, 0 "></Entry>
+            <Label Text="Имя преподавателя" FontSize="20" Margin="20, 0, 0, 0" ></Label>
+            <Editor x:Name="teacherText" Margin="20, 0, 20, 0 "></Editor>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Время:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
+                <Label x:Name="timeText" FontSize="20" Margin="20, 0, 0, 0" ></Label>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="Btn" Clicked="Btn_Clicked"  FontSize="14" Text="8:30" Margin="20, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                <Button x:Name="Btn1" Clicked="Btn1_Clicked"  FontSize="14" Text="9:30" Margin="10, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                <Button x:Name="Btn2" Clicked="Btn2_Clicked"  FontSize="14" Text="10:30" Margin="10, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+                <Button x:Name="Btn3" Clicked="Btn3_Clicked" FontSize="14" Text="11:30" Margin="10, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+            </StackLayout>
+            <Label Text="Дата" FontSize="20" Margin="20, 0, 0, 0" ></Label>
+            <Label x:Name="dText" FontSize="20" Margin="20, 0, 0, 0" ></Label>
+
+
+            <DatePicker Margin="20, 0, 20, 0" Format="D" DateSelected="datePic_DateSelected" x:Name="datePic" MinimumDate="03/18/2024" MaximumDate="03/29/2024"/>
+
+            <Button x:Name="AddBtn"  Margin="20, 20, 20, 0 " FontSize="14" Text="Добавить" Clicked="AddBtn_Clicked"  CornerRadius="10" BackgroundColor="#4f3129" TextColor="White"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

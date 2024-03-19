@@ -10,7 +10,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout Grid.RowSpan="2" VerticalOptions="Start" HeightRequest="51" Background="#4f3129">
-                <Label Text="Расписание" VerticalOptions="Center" Margin="0, 15, 0, 0"   HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
+                <Label Text="Новости" VerticalOptions="Center" Margin="0, 15, 0, 0"   HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
             </StackLayout>
             <ScrollView Grid.Row="1">
                 <StackLayout x:Name="admnews" VerticalOptions="FillAndExpand">
@@ -26,7 +26,7 @@
                                         
                                             <Grid>
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="20"></RowDefinition>
+                                                    <RowDefinition Height="24"></RowDefinition>
                                                     <RowDefinition Height="33"></RowDefinition>
                                                     <RowDefinition Height="20"></RowDefinition>
                                                     <RowDefinition Height="20"></RowDefinition>
@@ -37,12 +37,12 @@
                                                 </Grid.ColumnDefinitions>
                                                 
                                                 <Image Grid.Column="0" Grid.RowSpan="4" Source="{Binding Image}"></Image>
-                                                
-                                               
-                                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" FontSize="19" TextColor="Black"></Label>
+
+
+                                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" FontSize="21" FontAttributes="Bold" TextColor="Black"></Label>
                                                 <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" TextColor="Black"></Label>
-                                                <Label Grid.Column="1" Grid.Row="2" Text="{Binding Date}" TextColor="Black"></Label>
-                                                <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time}" TextColor="Black"></Label>
+                                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Date}" HorizontalOptions="End"  TextColor="Black"></Label>
+                                                <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time}" HorizontalOptions="Start" TextColor="Black"></Label>
                                             </Grid>
                                            
                                         

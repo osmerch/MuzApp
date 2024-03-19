@@ -12,6 +12,8 @@ namespace MuzApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddLesson : ContentPage
     {
+        string timefrombtn = "";
+        string datepic = "";
         public AddLesson()
         {
             InitializeComponent();
@@ -20,19 +22,59 @@ namespace MuzApp
         {
             string subject = title1.Text.Trim();
             string teacher = teacherText.Text.Trim();
-            DateTime date = DateTime.Now;
-            DateTime time = DateTime.Now;
-
-            Lesson lesson = new Lesson()
+            string date = datepic;
+            if (timefrombtn != "")
             {
-                Subject = subject,
-                TeacherName = teacher,
-                Date = date.ToShortDateString(),
-                Time = time.ToShortTimeString()
-            };
-            App.Db.SaveLesson(lesson);
-            title1.Text = "";
-            teacherText.Text = "";
+                Lesson lesson = new Lesson()
+                {
+                    Subject = subject,
+                    TeacherName = teacher,
+                    Date = date,
+                    Time = timefrombtn
+                };
+                App.Db.SaveLesson(lesson);
+                title1.Text = "";
+                teacherText.Text = "";
+            }
+        }
+
+        private void Btn_Clicked(object sender, EventArgs e)
+        {
+            
+            timefrombtn = "8:30";
+            timeText.Text = timefrombtn;
+        }
+
+        private void Btn1_Clicked(object sender, EventArgs e)
+        {
+            
+            timefrombtn = "9:30";
+            timeText.Text = timefrombtn;
+
+
+        }
+
+        private void Btn2_Clicked(object sender, EventArgs e)
+        {
+            
+            timefrombtn = "10:30";
+            timeText.Text = timefrombtn;
+
+
+        }
+
+        private void Btn3_Clicked(object sender, EventArgs e)
+        {
+            
+            timefrombtn = "11:30";
+            timeText.Text = timefrombtn;
+
+        }
+
+        private void datePic_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            datepic = e.NewDate.ToString("dd/MM/yyyy");
+            dText.Text = datepic;
         }
     }
 }

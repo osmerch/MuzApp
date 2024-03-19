@@ -4,15 +4,16 @@
              x:Class="MuzApp.AddNew">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Заголовок"></Label>
-            <Entry x:Name="title1"></Entry>
-            
-            <Label Text="Ссылка на изображение"></Label>
-            <Entry x:Name="imgsrc"></Entry>
+            <Label Text="Добавить новость" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+            <Label Text="Заголовок" FontSize="20" Margin="20, 20, 0, 0"></Label>
+            <Entry x:Name="title1" Margin="20, 0, 20, 0 "></Entry>
 
-            <Label Text="Описание новости"></Label>
-            <Editor x:Name="descTExt" HeightRequest="200"></Editor>
-            <Button x:Name="AddBtn"  FontSize="14" Text="Добавить" Clicked="AddBtn_Clicked"  CornerRadius="50" BackgroundColor="#005c5c" TextColor="White"></Button>
+            <Label Text="Ссылка на изображение" FontSize="20" Margin="20, 0, 0, 0"></Label>
+            <Entry x:Name="imgsrc" Margin="20, 0, 20, 0 "></Entry>
+
+            <Label Text="Описание новости" FontSize="20" Margin="20, 0, 0, 0"></Label>
+            <Editor x:Name="descTExt" Margin="20, 0, 20, 0 " HeightRequest="200"></Editor>
+            <Button x:Name="AddBtn"  FontSize="14" Text="Добавить" Margin="20, 20, 20, 0 "  Clicked="AddBtn_Clicked"  CornerRadius="10" BackgroundColor="#4f3129" TextColor="White"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

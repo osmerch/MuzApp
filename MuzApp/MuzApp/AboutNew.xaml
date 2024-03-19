@@ -5,18 +5,18 @@
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout>
-                <StackLayout x:Name="one"  Margin="40">
-                    <Label x:Name="name" Text="{Binding Title}" FontSize="16" HorizontalTextAlignment="Start"/>
-                    <Label Text="Заголовок" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
-                    <Label x:Name="desc" Text="{Binding Description}" FontSize="16" HorizontalTextAlignment="Start"/>
-                    <Label Text="Время" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
-                    <Label Text="{Binding Time}"></Label>
-                    <Label Text="Дата:" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
-                    <Label x:Name="datelabel" Text="{Binding Date}" FontSize="16" HorizontalTextAlignment="Start"/>
+                <StackLayout x:Name="one"  Margin="20">
+                    <Image Source="{Binding Image}" HorizontalOptions="Center"></Image>
+                    <Label x:Name="name" Text="{Binding Title}" FontAttributes="Bold"  FontSize="24" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="desc" Text="{Binding Description}" FontSize="20" HorizontalTextAlignment="Start"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Дата публикации:" Margin="0, 40, 20, 0" FontSize="16" HorizontalTextAlignment="Start"/>
+                        <Label x:Name="datelabel" Text="{Binding Date}" Margin="0, 40, 0, 0" FontSize="16" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Time}" FontSize="16" Margin="0, 40, 0, 0"></Label>
+                    </StackLayout>
                 </StackLayout>
-                <StackLayout   x:Name="two" Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button FontSize="14"  CornerRadius="50" BackgroundColor="#005c5c" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked"  TextColor="White" Text="   Удалить новость  "/>
-                </StackLayout>
+
+                <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129" Margin="20, 20, 20, 0" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked"  TextColor="White" Text="Удалить новость"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

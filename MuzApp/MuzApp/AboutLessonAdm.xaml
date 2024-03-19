@@ -7,18 +7,20 @@
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout>
-                <StackLayout x:Name="one"  Margin="40">
-                    <Label x:Name="name" Text="{Binding Subject}" FontSize="16" HorizontalTextAlignment="Start"/>
-                    <Label Text="Педагог:" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
-                    <Label x:Name="autor" Text="{Binding Teacher}" FontSize="16" HorizontalTextAlignment="Start"/>
-                    <Label Text="Время" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
-                    <Label Text="{Binding Time}"></Label>
-                    <Label Text="Дата:" TextColor="Black" FontSize="24" HorizontalTextAlignment="Start"/>
-                    <Label x:Name="desc" Text="{Binding Date}" FontSize="16" HorizontalTextAlignment="Start"/>
+                <StackLayout x:Name="one"  Margin="20">
+                    <Label x:Name="name" TextColor="Black" FontAttributes="Bold" Text="{Binding Subject}" HorizontalOptions="Center" FontSize="24" HorizontalTextAlignment="Start"/>
+                    <Label Text="Это занятие будет вести преподаватель"  FontSize="20"  Margin="0, 20, 0, 0" HorizontalTextAlignment="Start"/>
+                    <Label x:Name="autor" Text="{Binding TeacherName}" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start"/>
+                    
+                    <Label Text="Время занятия"  FontSize="20"  Margin="0, 20, 0, 0" HorizontalTextAlignment="Start"/>
+                    <Label Text="{Binding Time}" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start"></Label>
+
+                    <Label Text="Дата занятия"  FontSize="20"  Margin="0, 20, 0, 0" HorizontalTextAlignment="Start"/>
+                    <Label x:Name="desc" Text="{Binding Date}" TextColor="Black" FontSize="20" HorizontalTextAlignment="Start"/>
                 </StackLayout>
-                <StackLayout   x:Name="two" Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button FontSize="14"  CornerRadius="50" BackgroundColor="#005c5c" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" TextColor="White" Text="   Удалить занятие  "/>
-                </StackLayout>
+                
+                    <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129"  Margin="20, 20, 20, 0 " x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" TextColor="White" Text="Удалить занятие"/>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

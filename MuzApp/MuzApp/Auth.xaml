@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:muzapp="clr-namespace:MuzApp"
              NavigationPage.HasNavigationBar="False"
              x:Class="MuzApp.Auth">
     <ContentPage.Content>
@@ -14,6 +14,7 @@
             <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Войти" FontSize="13" Clicked="Ren2_Clicked"  x:Name="Ren2"/>
             <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Ren3_Clicked"  x:Name="Ren3"/>
             <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Test" FontSize="13" Clicked="Ren4_Clicked"  x:Name="Ren4"/>
+            <muzapp:CustomEntry EntryBorderColor="Black"  Margin="20, 0, 20, 0" EntryCornerRadius="15" Text="Testing"></muzapp:CustomEntry>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

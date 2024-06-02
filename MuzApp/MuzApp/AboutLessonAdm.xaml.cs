@@ -24,15 +24,15 @@ namespace MuzApp
 
         private async void DeleteBtn_Clicked(object sender, EventArgs e)
         {
-            var lesson = App.Db.GetLesson(id_lesson);
-            if (lesson != null)
-            {
-                App.Db.DeleteBook(id_lesson);
-                await Navigation.PopAsync();
+            //var lesson = App.Db.GetLesson(id_lesson);
+            //if (lesson != null)
+            //{
+            //    App.Db.DeleteBook(id_lesson);
+            //    await Navigation.PopAsync();
                 
-            }
-            else
-                await DisplayAlert("Ошибка", "Проблемы с удалением", "Хорошо");
+            //}
+            //else
+            //    await DisplayAlert("Ошибка", "Проблемы с удалением", "Хорошо");
         }
     }
 }

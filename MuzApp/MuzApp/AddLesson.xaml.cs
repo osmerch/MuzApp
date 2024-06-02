@@ -20,22 +20,22 @@ namespace MuzApp
         }
         private void AddBtn_Clicked(object sender, EventArgs e)
         {
-            string subject = title1.Text.Trim();
-            string teacher = teacherText.Text.Trim();
-            string date = datepic;
-            if (timefrombtn != "")
-            {
-                Lesson lesson = new Lesson()
-                {
-                    Subject = subject,
-                    TeacherName = teacher,
-                    Date = date,
-                    Time = timefrombtn
-                };
-                App.Db.SaveLesson(lesson);
-                title1.Text = "";
-                teacherText.Text = "";
-            }
+            //string subject = title1.Text.Trim();
+            //string teacher = teacherText.Text.Trim();
+            //string date = datepic;
+            //if (timefrombtn != "")
+            //{
+            //    Lesson lesson = new Lesson()
+            //    {
+            //        Subject = subject,
+            //        TeacherName = teacher,
+            //        Date = date,
+            //        Time = timefrombtn
+            //    };
+            //    App.Db.SaveLesson(lesson);
+            //    title1.Text = "";
+            //    teacherText.Text = "";
+            //}
         }
 
         private void Btn_Clicked(object sender, EventArgs e)

@@ -11,4 +11,5 @@
          android:TabbedPage.ToolbarPlacement="Bottom">
     <local:AdminLessonPage Title="Занятия"></local:AdminLessonPage>
     <local:NewsPage Title="Новости"></local:NewsPage>
+    <local:Profile Title="Профиль"></local:Profile>
 </TabbedPage>

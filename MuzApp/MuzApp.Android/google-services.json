@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "183295656358",
+    "project_id": "muzicschool-f7f69",
+    "storage_bucket": "muzicschool-f7f69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183295656358:android:7157aded622fbf7bfa0f67",
+        "android_client_info": {
+          "package_name": "com.companyname.muzapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB29qLTa6RfAZH4uFIa_QbW9bOvnSoGyPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

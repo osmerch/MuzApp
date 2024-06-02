@@ -25,7 +25,7 @@ namespace MuzApp
         }
         void ShowItems()
         {
-            ItemColl.ItemsSource = App.Db.GetNews();
+            //ItemColl.ItemsSource = App.Db.GetNews();
         }
 
         private async void ItemColl_SelectionChanged(object sender, SelectionChangedEventArgs e)

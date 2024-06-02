@@ -17,13 +17,7 @@
             </StackLayout>
             <ScrollView Grid.Row="1" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout  Orientation="Horizontal">
-                    <Button x:Name="Btn" Clicked="Btn_Clicked"  BackgroundColor="#c9b0a1"  FontSize="14" Text="18.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                    <Button x:Name="Btn1" Clicked="Btn1_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="19.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                    <Button x:Name="Btn2" Clicked="Btn2_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="20.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                    <Button x:Name="Btn3" Clicked="Btn3_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="21.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                    <Button x:Name="Btn4" Clicked="Btn4_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="22.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                    <Button x:Name="Btn5" Clicked="Btn5_Clicked"  BackgroundColor="#c9b0a1" FontSize="14" Text="23.03" Margin="5, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                </StackLayout>
+                    </StackLayout>
             </ScrollView>
 
             <ScrollView Grid.Row="2">

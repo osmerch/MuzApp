@@ -24,14 +24,14 @@ namespace MuzApp
 
         private async void DeleteBtn_Clicked(object sender, EventArgs e)
         {
-            var n = App.Db.GetNew(id_news);
-            if (n != null)
-            {
-                App.Db.DeleteNew(id_news);
-                await Navigation.PopAsync();
-            }
-            else
-                await DisplayAlert("Ошибка", "Проблемы с удалением", "Хорошо");
+            //var n = App.Db.GetNew(id_news);
+            //if (n != null)
+            //{
+            //    App.Db.DeleteNew(id_news);
+            //    await Navigation.PopAsync();
+            //}
+            //else
+            //    await DisplayAlert("Ошибка", "Проблемы с удалением", "Хорошо");
         }
     }
 }

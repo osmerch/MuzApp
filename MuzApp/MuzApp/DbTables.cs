@@ -7,16 +7,49 @@ namespace MuzApp
 {
     public class DbTables
     {
+        public class UserDataAuth
+        {
+            [PrimaryKey]
+            public int UserId { get; set; }
+            public string Login { get; set; }
+            public string Password { get; set; }
+            public int RoleId { get; set; }
+        }
+        public class Student
+        {
+            [PrimaryKey]
+            public int UserId { get; set; }
+            public string Name { get; set; }
+            public string Surname { get; set; }
+            public string Email { get; set; }
+            public DateTime DateOfBirth { get; set; }
+        }
+        public class Teacher
+        {
+            [PrimaryKey]
+            public int UserId { get; set; }
+            public string Name { get; set; }
+            public string Surname { get; set; }
+            public string Email { get; set; }
+            public DateTime DateOfBirth { get; set; }
+        }
+        public class Admin
+        {
+            [PrimaryKey]
+            public int UserId { get; set; }
+            public string Name { get; set; }
+            public string Surname { get; set; }
+            public string Email { get; set; }
+        }
         public class User
         {
             [PrimaryKey,  AutoIncrement]
             public int UserId { get; set; }
             public string Name { get; set; }
             public string Surname { get; set; }
-            public string Login { get; set; }
-            public string Password { get; set; }
             public string Email { get; set; }
-            public int RoleId { get; set; }
+            public DateTime DateOfBirth { get; set; }
+
         }
         public class Lesson
         {

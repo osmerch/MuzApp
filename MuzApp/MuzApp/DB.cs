@@ -1,8 +1,13 @@
-﻿using SQLite;
+﻿using Firebase.Database;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using static MuzApp.DbTables;
+using Firebase.Database.Query;
+using System.Linq;
+
 
 namespace MuzApp
 {
@@ -10,34 +15,70 @@ namespace MuzApp
     {
         SQLiteConnection conn;
 
-        public DB(string path)
-        {
-            conn = new SQLiteConnection(path);
-            conn.CreateTable<Lesson>();
-            conn.CreateTable<User>();
-            conn.CreateTable<New>();
+        private readonly FirebaseClient firebaseClient;
 
-        }
-        public List<User> GetUsers()
+        public DB()
         {
-            return conn.Table<User>().ToList();
+            firebaseClient = new FirebaseClient("https://muzicschool-f7f69-default-rtdb.firebaseio.com/");
         }
-        public User GetUser(int id)
+
+        public async Task AddUserData(UserDataAuth user)
         {
-            return conn.Get<User>(id);
+            await firebaseClient
+                .Child("UsersData")
+                .PostAsync(user);
         }
-        public int SaveUser(User user)
+
+        public async Task<List<UserDataAuth>> GetAllUsersData()
         {
-            if (user.UserId != 0)
-            {
-                conn.Update(user);
-                return user.UserId;
-            }
-            else
-            {
-                return conn.Insert(user);
-            }
+            return (await firebaseClient
+                .Child("UsersData")
+                .OnceAsync<UserDataAuth>())
+                .Select(item => new UserDataAuth
+                {
+                    UserId = item.Object.UserId,
+                    Login = item.Object.Login,
+                    Password = item.Object.Password,
+                    RoleId = item.Object.RoleId,
+
+                }).ToList();
         }
+
+        public async Task AddAdmin(Admin admin)
+        {
+            await firebaseClient
+                .Child("Admin")
+                .PostAsync(admin);
+        }
+
+        //public DB(string path)
+        //{
+        //    conn = new SQLiteConnection(path);
+        //    conn.CreateTable<Lesson>();
+        //    conn.CreateTable<User>();
+        //    conn.CreateTable<New>();
+
+        //}
+        //public List<User> GetUsers()
+        //{
+        //    return conn.Table<User>().ToList();
+        //}
+        //public User GetUser(int id)
+        //{
+        //    return conn.Get<User>(id);
+        //}
+        //public int SaveUser(User user)
+        //{
+        //    if (user.UserId != 0)
+        //    {
+        //        conn.Update(user);
+        //        return user.UserId;
+        //    }
+        //    else
+        //    {
+        //        return conn.Insert(user);
+        //    }
+        //}
         public int DeleteUser(int Id)
         {
             return conn.Delete<User>(Id);

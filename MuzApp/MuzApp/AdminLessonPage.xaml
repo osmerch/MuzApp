@@ -23,7 +23,7 @@
             
             <ScrollView Grid.Row="2">
                 <StackLayout x:Name="admlessons" VerticalOptions="FillAndExpand">
-                    <Label x:Name="testLabel" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
+                    <Label x:Name="testLabel" FontAttributes="Bold" FontSize="21" HorizontalTextAlignment="Center" TextColor="Black"></Label>
                     <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
                           SelectedItem="{Binding SelectedLesson, Mode=TwoWay}">
                         <CollectionView.ItemTemplate>

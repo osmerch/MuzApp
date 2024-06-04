@@ -24,6 +24,7 @@ namespace MuzApp
             public string Email { get; set; }
             public DateTime DateOfBirth { get; set; }
         }
+
         public class Teacher
         {
             [PrimaryKey]
@@ -31,7 +32,7 @@ namespace MuzApp
             public string Name { get; set; }
             public string Surname { get; set; }
             public string Email { get; set; }
-            public DateTime DateOfBirth { get; set; }
+            public string Desc { get; set; }
         }
         public class Admin
         {
@@ -49,6 +50,23 @@ namespace MuzApp
             public string Surname { get; set; }
             public string Email { get; set; }
             public DateTime DateOfBirth { get; set; }
+        }
+
+        public class Teacher_Course
+        {
+            [PrimaryKey, AutoIncrement]
+            public int Id { get; set; }
+            public int TeacherId { get; set; }
+            public int CourseId { get; set; }
+
+        }
+
+        public class Course
+        {
+            [PrimaryKey, AutoIncrement]
+            public int CourseId { get; set; }
+            public string Name { get; set; }
+            public string Desc {  get; set; }
 
         }
         public class Lesson
@@ -58,8 +76,6 @@ namespace MuzApp
             public string Date { get; set; }
             public string Time { get; set; }
             public string Subject { get; set; }
-            //[Indexed]
-            //public string UserId { get; set; }
             public string TeacherName { get; set; }
         }
 

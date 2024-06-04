@@ -22,6 +22,7 @@ namespace MuzApp
             firebaseClient = new FirebaseClient("https://muzicschool-f7f69-default-rtdb.firebaseio.com/");
         }
 
+        //UserData
         public async Task AddUserData(UserDataAuth user)
         {
             await firebaseClient
@@ -44,11 +45,74 @@ namespace MuzApp
                 }).ToList();
         }
 
+        //Admin
         public async Task AddAdmin(Admin admin)
         {
             await firebaseClient
                 .Child("Admin")
                 .PostAsync(admin);
+        }
+
+        //Course
+        public async Task AddCourse(Course course)
+        {
+            await firebaseClient
+                .Child("Course")
+                .PostAsync(course);
+        }
+
+        public async Task<List<Course>> GetAllCourse()
+        {
+            return (await firebaseClient
+                .Child("Course")
+                .OnceAsync<Course>())
+                .Select(item => new Course
+                {
+                    CourseId = item.Object.CourseId,
+                    Name = item.Object.Name,
+                    Desc = item.Object.Desc
+
+                }).ToList();
+        }
+        public async Task<List<Teacher_Course>> GetAllCourseTeacher()
+        {
+            return (await firebaseClient
+                .Child("Course")
+                .OnceAsync<Teacher_Course>())
+                .Select(item => new Teacher_Course
+                {
+                    Id = item.Object.Id,
+                    CourseId = item.Object.CourseId,
+                    TeacherId = item.Object.TeacherId
+                }).ToList();
+        }
+        public async Task AddTeacher_Course(Teacher_Course Teacher_Course)
+        {
+            await firebaseClient
+               .Child("Teacher_Course")
+               .PostAsync(Teacher_Course);
+        }
+        //Teacher
+        public async Task<List<Teacher>> GetAllTeacgers()
+        {
+            return (await firebaseClient
+                .Child("Teacher")
+                .OnceAsync<Teacher>())
+                .Select(item => new Teacher
+                {
+                    UserId = item.Object.UserId,
+                    Name = item.Object.Name,
+                    Surname = item.Object.Surname,
+                    Email = item.Object.Email,
+                    Desc = item.Object.Desc
+
+                }).ToList();
+        }
+        public async Task AddTeacher(Teacher teacher)
+        {
+            await firebaseClient
+                .Child("Teacher")
+                .PostAsync(teacher);
         }
 
         //public DB(string path)

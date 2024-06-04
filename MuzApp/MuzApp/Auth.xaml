@@ -7,14 +7,12 @@
         <StackLayout>
             <Label Text="Вход" VerticalOptions="Center" Margin="0, 155, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
             <Label Text="Логин" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <Entry Margin="20, 0, 20, 0" x:Name="Log"/>
+            <muzapp:CustomEntry Margin="20, 0, 20, 0" x:Name="Log"></muzapp:CustomEntry>
             <Label Text="Пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-
-            <Entry  IsPassword="True" Margin="20, 0, 20, 50" x:Name="Pas"/>
+            <muzapp:CustomEntry  IsPassword="True" Margin="20, 0, 20, 50" x:Name="Pas"></muzapp:CustomEntry>
             <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Войти" FontSize="13" Clicked="Ren2_Clicked"  x:Name="Ren2"/>
             <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Ren3_Clicked"  x:Name="Ren3"/>
             <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Test" FontSize="13" Clicked="Ren4_Clicked"  x:Name="Ren4"/>
-            <muzapp:CustomEntry EntryBorderColor="Black"  Margin="20, 0, 20, 0" EntryCornerRadius="15" Text="Testing"></muzapp:CustomEntry>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

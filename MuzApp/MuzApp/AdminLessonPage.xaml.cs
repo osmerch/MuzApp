@@ -89,7 +89,7 @@ namespace MuzApp
                     btn.BackgroundColor = Color.DarkKhaki;
                 }
             }
-            testLabel.Text = selectedDate.ToString();
+            testLabel.Text = selectedDate.ToString("dddd");
         }
         protected override void OnAppearing()
         {

@@ -20,12 +20,10 @@
                 </ScrollView>
             </StackLayout>
             
-            
             <ScrollView Grid.Row="2">
                 <StackLayout x:Name="admlessons" VerticalOptions="FillAndExpand">
                     <Label x:Name="testLabel" FontAttributes="Bold" FontSize="21" HorizontalTextAlignment="Center" TextColor="Black"></Label>
-                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
-                          SelectedItem="{Binding SelectedLesson, Mode=TwoWay}">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="OnLessonSelected">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="5">
@@ -34,14 +32,13 @@
                                     </Grid.RowDefinitions>
                                     <Frame CornerRadius="20" BackgroundColor="#c9b0a1" HasShadow="True">
                                         <StackLayout WidthRequest="340"  HorizontalOptions="Center">
-                                            <Label Text="{Binding Subject}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
-                                            <Label Text="{Binding Time}" TextColor="Black" FontSize="18"></Label>
-                                            <Label Text="{Binding Date}" TextColor="#4f3129" FontSize="16"></Label>
-                                            <Label Text="{Binding TeacherName}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding CourseName}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
+                                            <Label Text="{Binding TeacherName}" TextColor="Black" FontSize="18"></Label>
+                                            <Label Text="{Binding StartTime}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding Room}" TextColor="#4f3129" FontSize="16"></Label>
                                         </StackLayout>
                                     </Frame>
                                 </Grid>
-
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>

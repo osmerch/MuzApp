@@ -67,16 +67,26 @@ namespace MuzApp
             public int CourseId { get; set; }
             public string Name { get; set; }
             public string Desc {  get; set; }
-
+        }
+        public class WorkSchedule
+        {
+            [PrimaryKey, AutoIncrement]
+            public int TeacherId { get; set; }
+            public DayOfWeek Day { get; set; }
+            public TimeSpan StartTime { get; set; }
+            public TimeSpan EndTime { get; set; }
         }
         public class Lesson
         {
             [PrimaryKey, AutoIncrement]
             public int LessonId { get; set; }
-            public string Date { get; set; }
-            public string Time { get; set; }
-            public string Subject { get; set; }
-            public string TeacherName { get; set; }
+            public int TeacherId { get; set; }
+            public int CourseId { get; set; }
+            public DateTime Date { get; set; }
+            public TimeSpan StartTime { get; set; }
+            public TimeSpan EndTime { get; set; }
+            public string Status { get; set; }  
+            public string Room { get; set; }    
         }
 
         public class New

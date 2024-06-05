@@ -7,6 +7,8 @@ using static MuzApp.DbTables;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Firebase.Database;
+using static MuzApp.AdminLessonPage;
 
 namespace MuzApp
 {
@@ -15,14 +17,18 @@ namespace MuzApp
     {
         public bool edited = true;
         public int id_lesson;
-        public AboutLessonAdm(Lesson lesson)
+        public AboutLessonAdm(string courseName, string teacherName, string startTime, string endTime, string date, string teacherDesc, string courseDesc)
         {
             InitializeComponent();
-            this.BindingContext = lesson;
-            id_lesson = lesson.LessonId;
+            CourseNameLabel.Text = courseName;
+            TeacherNameLabel.Text = teacherName;
+            StartTimeLabel.Text = startTime;
+            EndTimeLabel.Text = endTime;
+            DateLabel.Text = date;
+            TeacherDescLabel.Text = teacherDesc;
+            CourseDescLabel.Text = courseDesc;
         }
-
-        private async void DeleteBtn_Clicked(object sender, EventArgs e)
+        private  void DeleteBtn_Clicked(object sender, EventArgs e)
         {
             //var lesson = App.Db.GetLesson(id_lesson);
             //if (lesson != null)

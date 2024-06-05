@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using static MuzApp.DbTables;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Firebase.Database;
 
 namespace MuzApp
 {
@@ -13,13 +14,35 @@ namespace MuzApp
     public partial class AdminLessonPage : ContentPage
     {
         private DateTime _selectedDate;
-        string date = "18.03.2024";
+        FirebaseClient firebaseClient;
+        List<Course> courses;
+        List<Teacher> teachers;
+        List<Lesson> lessons;
+
         public Lesson SelectedLesson { get; set; }
         public AdminLessonPage()
         {
             InitializeComponent();
+            firebaseClient = new FirebaseClient("https://muzicschool-f7f69-default-rtdb.firebaseio.com/");
             this.BindingContext = this;
             CreateCalendar();
+            LoadDataAsync();
+
+        }
+        private async Task<List<T>> GetAllAsync<T>(string childPath)
+        {
+            return (await firebaseClient
+                .Child(childPath)
+                .OnceAsync<T>()).Select(item =>
+                {
+                    var obj = item.Object;
+                    var prop = obj.GetType().GetProperty("Key");
+                    if (prop != null)
+                    {
+                        prop.SetValue(obj, item.Key);
+                    }
+                    return obj;
+                }).ToList();
         }
         private void CreateCalendar()
         {
@@ -90,16 +113,55 @@ namespace MuzApp
                 }
             }
             testLabel.Text = selectedDate.ToString("dddd");
+            LoadLessonsForDate(selectedDate);
         }
-        protected override void OnAppearing()
+        private async void LoadDataAsync()
         {
-            ShowItems();
+            try
+            {
+                // Получение данных из Firebase
+                courses = await GetAllAsync<Course>("Course");
+                teachers = await GetAllAsync<Teacher>("Teacher");
+                lessons = await GetAllAsync<Lesson>("Lesson");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading data: {ex.Message}");
+            }
         }
-        void ShowItems()
+        private void LoadLessonsForDate(DateTime date)
         {
-            //List<Lesson> allLessons = App.Db.GetLessons();
-            //List<Lesson> lessonsOnTargetDate = allLessons.Where(lesson => lesson.Date == date).ToList(); 
-            //ItemColl.ItemsSource = lessonsOnTargetDate;
+            LoadDataAsync();
+            var selectedDateLessons = lessons
+                .Where(lesson => lesson.Date.Date == date.Date)
+                .Select(lesson => new LessonViewModel
+                {
+                    LessonID = lesson.LessonId,
+                    CourseName = courses.FirstOrDefault(course => course.CourseId == lesson.CourseId)?.Name,
+                    TeacherName = teachers.FirstOrDefault(teacher => teacher.UserId == lesson.TeacherId)?.Name + " " + teachers.FirstOrDefault(teacher => teacher.UserId == lesson.TeacherId)?.Surname,
+                    StartTime = $"{lesson.StartTime:hh\\:mm}",
+                    EndTime = $"{lesson.EndTime:hh\\:mm}",
+                    Room = lesson.Room,
+                    Date = $"{lesson.Date:D}",
+                    TeacherDesc = teachers.FirstOrDefault(teacher => teacher.UserId == lesson.TeacherId)?.Desc,
+                    CourseDesc = courses.FirstOrDefault(course => course.CourseId == lesson.CourseId)?.Desc
+
+                })
+                .ToList();
+
+            ItemColl.ItemsSource = selectedDateLessons;
+        }
+        public class LessonViewModel
+        {
+            public int LessonID { get; set; }   
+            public string CourseName { get; set; }
+            public string TeacherName { get; set; }
+            public string StartTime { get; set; }
+            public string EndTime { get; set; }
+            public string Date { get; set; }
+            public string Room { get; set; }
+            public string TeacherDesc { get; set; }
+            public string CourseDesc { get; set; }
         }
 
         private async void AddLesson_Clicked(object sender, EventArgs e)
@@ -107,58 +169,30 @@ namespace MuzApp
             await Navigation.PushAsync(new AddLesson());
         }
 
-        private async void ItemColl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+   
+        private async void OnLessonSelected(object sender, SelectionChangedEventArgs e)
         {
-            await Navigation.PushAsync(new AboutLessonAdm(SelectedLesson));
-        }
-
-        private void Btn_Clicked(object sender, EventArgs e)
-        {
-            date = "18.03.2024";
-            ShowItems();
-
-
-        }
-
-        private void Btn1_Clicked(object sender, EventArgs e)
-        {
-            date = "19.03.2024";
-            ShowItems();
-
-        }
-
-        private void Btn2_Clicked(object sender, EventArgs e)
-        {
-            date = "20.03.2024";
-            ShowItems();
-
-
-        }
-
-        private void Btn3_Clicked(object sender, EventArgs e)
-        {
-            date = "21.03.2024";
-            ShowItems();
-
-
-        }
-
-        private void Btn4_Clicked(object sender, EventArgs e)
-        {
-            //date = "22.03.2024";
-            //List<Lesson> allLessons = App.Db.GetLessons();
-            //List<Lesson> lessonsOnTargetDate = allLessons.Where(lesson => lesson.Date == date).ToList();
-            //ItemColl.ItemsSource = lessonsOnTargetDate;
-
-        }
-
-        private void Btn5_Clicked(object sender, EventArgs e)
-        {
-            //date = "23.03.2024";
-            //List<Lesson> allLessons = App.Db.GetLessons();
-            //List<Lesson> lessonsOnTargetDate = allLessons.Where(lesson => lesson.Date == date).ToList();
-            //ItemColl.ItemsSource = lessonsOnTargetDate;
-
+            //var selectedLesson = e.CurrentSelection.FirstOrDefault() as LessonViewModel;
+            //if (selectedLesson != null)
+            //{
+            //    await Navigation.PushAsync(new AboutLessonAdm(
+            //        Convert.ToInt32(selectedLesson.LessonID)));
+            //}
+            if (e.CurrentSelection.FirstOrDefault() is LessonViewModel selectedLesson)
+            {
+                await Navigation.PushAsync(new AboutLessonAdm(
+                    selectedLesson.CourseName,
+                    selectedLesson.TeacherName,
+                    selectedLesson.StartTime,
+                    selectedLesson.EndTime,
+                    selectedLesson.Date,
+                    selectedLesson.TeacherDesc,
+                    selectedLesson.CourseDesc));
+            }
+            else
+            {
+                await DisplayAlert("Ошибка", "Проверьте данные", "Ок");
+            }
         }
     }
 }

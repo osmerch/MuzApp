@@ -38,8 +38,9 @@ namespace MuzApp
                         RandId = rnd.Next(1000, 9999);
                     }
                 }
-                string login = "log1";
-                string password = "123";
+                string teacherid = "1";
+                DayOfWeek day = DayOfWeek.Tuesday;
+                //TimeSpan StartTime = TimeSpan.FromDays;
                 string email = "ellie_greys@mail.ru";
                 string name = "Эльгина";
                 string surname = "Мирзаянова";
@@ -50,10 +51,10 @@ namespace MuzApp
 
                 UserDataAuth user = new UserDataAuth()
                 {
-                    UserId = RandId,
-                    Login = login,
-                    Password = password,
-                    RoleId = 3,
+                    //UserId = RandId,
+                    //Login = login,
+                    //Password = password,
+                    //RoleId = 3,
                 };
                 Teacher teacher = new Teacher()
                 {

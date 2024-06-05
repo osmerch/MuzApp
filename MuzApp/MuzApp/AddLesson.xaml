@@ -10,23 +10,33 @@
             
             <Label Text="Преподаватель:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
             <Picker x:Name="teacherPicker" Margin="20, 0, 20, 0 " Title="Преподаватель" ItemDisplayBinding="{Binding Name}"></Picker>
-            
+
             <Label Text="Аудитория:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-            <Entry x:Name="RoomText" Margin="20, 0, 20, 0 "></Entry>
+            <Picker  Margin="20, 0, 20, 0 " x:Name="AudPicker" SelectedIndexChanged="AudPicker_SelectedIndexChanged">
+                <Picker.Items >
+                    <x:String>10 аудитория</x:String>
+                    <x:String>11 аудитория</x:String>
+                    <x:String>12 аудитория</x:String>
+                    <x:String>13 аудитория</x:String>
+                    <x:String>14 аудитория</x:String>
+                    <x:String>Большой зал</x:String>
+                    <x:String>Малый зал</x:String>
+                </Picker.Items>
+            </Picker>
             
-            <Editor x:Name="teacherText" Margin="20, 0, 20, 0 "></Editor>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Время:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
                 <Label x:Name="timeText" FontSize="20" Margin="20, 0, 0, 0" ></Label>
                 
             </StackLayout>
-
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="Btn" Clicked="Btn_Clicked"  FontSize="14" Text="8:30" Margin="20, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                <Button x:Name="Btn1" Clicked="Btn1_Clicked"  FontSize="14" Text="9:30" Margin="10, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                <Button x:Name="Btn2" Clicked="Btn2_Clicked"  FontSize="14" Text="10:30" Margin="10, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
-                <Button x:Name="Btn3" Clicked="Btn3_Clicked" FontSize="14" Text="11:30" Margin="10, 10, 0, 10" CornerRadius="10" WidthRequest="63" TextColor="Black"></Button>
+            <StackLayout>
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout x:Name="timeSlotsStack" Orientation="Horizontal">
+                    </StackLayout>
+                </ScrollView>
             </StackLayout>
+           
+               
             <Label Text="Дата" FontSize="20" Margin="20, 0, 0, 0" ></Label>
             <Label x:Name="dText" FontSize="20" Margin="20, 0, 0, 0" ></Label>
 

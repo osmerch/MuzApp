@@ -115,6 +115,56 @@ namespace MuzApp
                 .PostAsync(teacher);
         }
 
+        //WorkSchedule
+        public async Task AddWorkSchedule(WorkSchedule workSchedule)
+        {
+            await firebaseClient
+                .Child("WorkSchedule")
+                .PostAsync(workSchedule);
+        }
+
+        public async Task<List<WorkSchedule>> GetAllWorkSchedules()
+        {
+            return (await firebaseClient
+                .Child("WorkSchedule")
+                .OnceAsync<WorkSchedule>()).Select(item =>
+                {
+                    var obj = item.Object;
+                    var prop = obj.GetType().GetProperty("Key");
+                    if (prop != null)
+                    {
+                        prop.SetValue(obj, item.Key);
+                    }
+                    return obj;
+                }).ToList();
+        }
+
+        //lesson
+        public async Task AddLesson(Lesson lesson)
+        {
+            await firebaseClient
+                .Child("Lesson")
+                .PostAsync(lesson);
+        }
+
+        public async Task<List<Lesson>> GetAllLessons()
+        {
+            return (await firebaseClient
+                .Child("Lesson")
+                .OnceAsync<Lesson>()).Select(item =>
+                {
+                    var obj = item.Object;
+                    var prop = obj.GetType().GetProperty("Key");
+                    if (prop != null)
+                    {
+                        prop.SetValue(obj, item.Key);
+                    }
+                    return obj;
+                }).ToList();
+        }
+
+
+
         //public DB(string path)
         //{
         //    conn = new SQLiteConnection(path);

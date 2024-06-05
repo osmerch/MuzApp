@@ -27,6 +27,7 @@ namespace MuzApp
             this.BindingContext = this;
             CreateCalendar();
             LoadDataAsync();
+            //LoadLessonsForDate(DateTime.Today);
 
         }
         private async Task<List<T>> GetAllAsync<T>(string childPath)
@@ -131,6 +132,7 @@ namespace MuzApp
         }
         private void LoadLessonsForDate(DateTime date)
         {
+
             LoadDataAsync();
             var selectedDateLessons = lessons
                 .Where(lesson => lesson.Date.Date == date.Date)
@@ -143,9 +145,10 @@ namespace MuzApp
                     EndTime = $"{lesson.EndTime:hh\\:mm}",
                     Room = lesson.Room,
                     Date = $"{lesson.Date:D}",
+                    Status = (lesson.Status == "отменено" || DateTime.Now > lesson.Date.Add(lesson.StartTime).AddMinutes(10)) ? "окончено" : "",                   
                     TeacherDesc = teachers.FirstOrDefault(teacher => teacher.UserId == lesson.TeacherId)?.Desc,
-                    CourseDesc = courses.FirstOrDefault(course => course.CourseId == lesson.CourseId)?.Desc
-
+                    CourseDesc = courses.FirstOrDefault(course => course.CourseId == lesson.CourseId)?.Desc,
+                    BackgroundColor = (lesson.Status == "отменено" || DateTime.Now > lesson.Date.Add(lesson.StartTime).AddMinutes(10)) ? Color.LightGray : Color.FromHex("#C9B0A1")
                 })
                 .ToList();
 
@@ -160,8 +163,10 @@ namespace MuzApp
             public string EndTime { get; set; }
             public string Date { get; set; }
             public string Room { get; set; }
+            public string Status {  get; set; }
             public string TeacherDesc { get; set; }
             public string CourseDesc { get; set; }
+            public Color BackgroundColor { get; set; }
         }
 
         private async void AddLesson_Clicked(object sender, EventArgs e)
@@ -172,12 +177,6 @@ namespace MuzApp
    
         private async void OnLessonSelected(object sender, SelectionChangedEventArgs e)
         {
-            //var selectedLesson = e.CurrentSelection.FirstOrDefault() as LessonViewModel;
-            //if (selectedLesson != null)
-            //{
-            //    await Navigation.PushAsync(new AboutLessonAdm(
-            //        Convert.ToInt32(selectedLesson.LessonID)));
-            //}
             if (e.CurrentSelection.FirstOrDefault() is LessonViewModel selectedLesson)
             {
                 await Navigation.PushAsync(new AboutLessonAdm(
@@ -187,7 +186,8 @@ namespace MuzApp
                     selectedLesson.EndTime,
                     selectedLesson.Date,
                     selectedLesson.TeacherDesc,
-                    selectedLesson.CourseDesc));
+                    selectedLesson.CourseDesc,
+                    selectedLesson.LessonID));
             }
             else
             {

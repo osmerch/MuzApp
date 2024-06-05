@@ -108,12 +108,12 @@ namespace MuzApp
             UpdateAvailableTimeSlots();
         }
 
-        private void UpdateAvailableTimeSlots()
+        private async void UpdateAvailableTimeSlots()
         {
             if (teacherPicker.SelectedIndex != -1 && datePic.Date != null)
             {
                 dateLesson = datePic.Date;
-                   var selectedTeacher = (Teacher)teacherPicker.SelectedItem;
+                var selectedTeacher = (Teacher)teacherPicker.SelectedItem;
                 var selectedDate = datePic.Date;
                 var dayOfWeek = selectedDate.DayOfWeek;
 
@@ -122,7 +122,7 @@ namespace MuzApp
                     .ToList();
                 _TeachId = selectedTeacher.UserId;
 
-                var occupiedSlots = GetOccupiedTimeSlots(selectedTeacher.UserId, selectedDate);
+                var occupiedSlots = await GetOccupiedTimeSlots(selectedTeacher.UserId, selectedDate);
 
                 timeSlotsStack.Children.Clear();
 
@@ -156,11 +156,13 @@ namespace MuzApp
             }
         }
 
-        private List<TimeSpan> GetOccupiedTimeSlots(int teacherId, DateTime date)
+        private async Task<List<TimeSpan>> GetOccupiedTimeSlots(int teacherId, DateTime date)
         {
-            // Здесь реализуйте логику для получения уже занятых временных слотов для указанного преподавателя и даты
-            // Предположим, что у вас есть метод, который возвращает список занятых временных слотов
-            return new List<TimeSpan>();
+            var lessons = await GetAllAsync<Lesson>("Lesson");
+            return lessons
+                .Where(l => l.TeacherId == teacherId && l.Date.Date == date.Date)
+                .Select(l => l.StartTime)
+                .ToList();
         }
 
         

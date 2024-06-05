@@ -30,7 +30,7 @@
                     <Label x:Name="CourseDescLabel" />
                 </StackLayout>
                 <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129"  Margin="20, 20, 20, 0 " x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" TextColor="White" Text="Удалить занятие"/>
-                
+                <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129"  Margin="20, 20, 20, 0 " x:Name="CancelBtn" Clicked="CancelBtn_Clicked"  TextColor="White" Text="Отменить занятие"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

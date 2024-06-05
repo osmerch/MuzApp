@@ -8,7 +8,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"></RowDefinition>
-                <RowDefinition Height="55"></RowDefinition>
+                <RowDefinition Height="85"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout Grid.RowSpan="2" VerticalOptions="Start" HeightRequest="51" Background="#4f3129">
@@ -18,11 +18,12 @@
                 <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                     <StackLayout Orientation="Horizontal" x:Name="HorizontalClendar"></StackLayout>
                 </ScrollView>
+                <Label x:Name="testLabel" FontAttributes="Bold" FontSize="21" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+
             </StackLayout>
             
             <ScrollView Grid.Row="2">
                 <StackLayout x:Name="admlessons" VerticalOptions="FillAndExpand">
-                    <Label x:Name="testLabel" FontAttributes="Bold" FontSize="21" HorizontalTextAlignment="Center" TextColor="Black"></Label>
                     <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="OnLessonSelected">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -30,12 +31,14 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Frame CornerRadius="20" BackgroundColor="#c9b0a1" HasShadow="True">
+                                    <Frame CornerRadius="20" BackgroundColor="{Binding BackgroundColor}" HasShadow="True">
                                         <StackLayout WidthRequest="340"  HorizontalOptions="Center">
                                             <Label Text="{Binding CourseName}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
                                             <Label Text="{Binding TeacherName}" TextColor="Black" FontSize="18"></Label>
                                             <Label Text="{Binding StartTime}" TextColor="#4f3129" FontSize="16"></Label>
                                             <Label Text="{Binding Room}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding Status}" TextColor="#4f3129" FontSize="16"></Label>
+
                                         </StackLayout>
                                     </Frame>
                                 </Grid>

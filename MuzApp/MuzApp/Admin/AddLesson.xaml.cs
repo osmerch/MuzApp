@@ -59,12 +59,10 @@ namespace MuzApp
         {
             try
             {
-                       
                 courses = await GetAllAsync<Course>("Course");
                 teachers = await GetAllAsync<Teacher>("Teacher");
                 teacher_Courses = await GetAllAsync<Teacher_Course>("Teacher_Course");
                 workSchedules = await GetAllAsync<WorkSchedule>("WorkSchedule");
-                //lessons = await GetAllAsync<Lesson>("Lesson");
 
                 coursePicker.ItemsSource = courses;
                 coursePicker.SelectedIndex = -1;
@@ -150,7 +148,7 @@ namespace MuzApp
                             timeSlotsStack.Children.Add(timeSlotButton);
                         }
 
-                        currentTime = currentTime.Add(TimeSpan.FromMinutes(60)); // 50 минут занятия + 10 минут перерыва
+                        currentTime = currentTime.Add(TimeSpan.FromMinutes(60)); 
                     }
                 }
             }
@@ -173,7 +171,6 @@ namespace MuzApp
             timeText.Text = selectedTime.ToString();
             starttimelesson = selectedTime;
             endtimelesson = selectedTime.Add(TimeSpan.FromMinutes(50));
-            // Ваш код для обработки выбранного временного слота
         }
 
         private async void AddBtn_Clicked(object sender, EventArgs e)
@@ -235,7 +232,6 @@ namespace MuzApp
             if (teacherPicker.SelectedIndex != -1)
             {
                 Teacher selectedTeacher = (Teacher)teacherPicker.SelectedItem;
-                //DisplayAvailableTimeSlots(selectedTeacher.UserId, e.NewDate);
             }
             UpdateAvailableTimeSlots();
         }
@@ -248,19 +244,18 @@ namespace MuzApp
             {
                 new WorkSchedule
                 {
-                    TeacherId = 3034, // ID Софьи
+                    TeacherId = 3034, 
                     Day = DayOfWeek.Tuesday,
                     StartTime = new TimeSpan(10, 0, 0),
                     EndTime = new TimeSpan(14, 0, 0)
                 },
                 new WorkSchedule
                 {
-                    TeacherId = 3034, // ID Софьи
+                    TeacherId = 3034, 
                     Day = DayOfWeek.Wednesday,
                     StartTime = new TimeSpan(8, 0, 0),
                     EndTime = new TimeSpan(12, 0, 0)
                 },
-                 // Добавьте другие тестовые данные здесь
             };
 
             foreach (var schedule in testSchedules)

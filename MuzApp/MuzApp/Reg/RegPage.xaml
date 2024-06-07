@@ -7,25 +7,14 @@
         <ScrollView>
             <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
                 <Label Text="Регистрация" VerticalOptions="Center" Margin="0, 0, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
-                <Label Text="Логин" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-                <Entry Margin="20, -20, 0, 0" x:Name="Log"/>
-                <Label Text="Пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
 
-                <Entry IsPassword="True" Margin="20, -20, 0, 0" x:Name="Pas"/>
-                <Label Text="Повторить пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-
-                <Entry  IsPassword="True" Margin="20, -20, 0, 0" x:Name="PasRep"/>
-                <Label Text="Email" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-
-                <Entry  Margin="20, -20, 0, 0" x:Name="EmailText"/>
                 <Label Text="Имя" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-
                 <Entry  Margin="20, -20, 0, 0" x:Name="NameText"/>
+                
                 <Label Text="Фамилия" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-
                 <Entry  Margin="20, -20, 0, 0" x:Name="SurnameText"/>
 
-                <Button TextColor="White" Margin="20, 20, 0, 0"   BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
+                <Button TextColor="White" Margin="20, 20, 0, 0"   BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Далее" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
                 <Button TextColor="White" Margin="20, 0, 0, 0"  BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Назад ко входу" FontSize="13" Clicked="EnterBtn_Clicked"  x:Name="EnterBtn"/>
 
             </StackLayout>

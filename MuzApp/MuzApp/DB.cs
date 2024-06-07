@@ -38,7 +38,7 @@ namespace MuzApp
                 .Select(item => new UserDataAuth
                 {
                     UserId = item.Object.UserId,
-                    Login = item.Object.Login,
+                    Email = item.Object.Email,
                     Password = item.Object.Password,
                     RoleId = item.Object.RoleId,
 
@@ -51,6 +51,13 @@ namespace MuzApp
             await firebaseClient
                 .Child("Admin")
                 .PostAsync(admin);
+        }
+
+        public async Task AddStudent(Student student)
+        {
+            await firebaseClient
+                .Child("Student")
+                .PostAsync(student);
         }
 
         //Course
@@ -165,62 +172,14 @@ namespace MuzApp
 
 
 
-        //public DB(string path)
-        //{
-        //    conn = new SQLiteConnection(path);
-        //    conn.CreateTable<Lesson>();
-        //    conn.CreateTable<User>();
-        //    conn.CreateTable<New>();
 
-        //}
-        //public List<User> GetUsers()
-        //{
-        //    return conn.Table<User>().ToList();
-        //}
-        //public User GetUser(int id)
-        //{
-        //    return conn.Get<User>(id);
-        //}
-        //public int SaveUser(User user)
-        //{
-        //    if (user.UserId != 0)
-        //    {
-        //        conn.Update(user);
-        //        return user.UserId;
-        //    }
-        //    else
-        //    {
-        //        return conn.Insert(user);
-        //    }
-        //}
-        public int DeleteUser(int Id)
-        {
-            return conn.Delete<User>(Id);
-        }
-        public List<Lesson> GetLessons()
-        {
-            return conn.Table<Lesson>().ToList();
-        }
-        public Lesson GetLesson(int Id)
-        {
-            return conn.Get<Lesson>(Id);
-        }
-        public int SaveLesson(Lesson lesson)
-        {
-            if (lesson.LessonId != 0)
-            {
-                conn.Update(lesson);
-                return lesson.LessonId;
-            }
-            else
-            {
-                return conn.Insert(lesson);
-            }
-        }
-        public int DeleteBook(int Id)
-        {
-            return conn.Delete<Lesson>(Id);
-        }
+
+
+
+
+
+      
+ 
 
         public List<New> GetNews()
         {

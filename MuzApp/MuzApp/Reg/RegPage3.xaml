@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.Reg.RegPage3">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Регистрация" VerticalOptions="Center" Margin="0, 0, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
+            <Label Text="Email" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+            <Entry  Margin="20, -20, 0, 0" x:Name="EmailText"/>
+
+            <Button TextColor="White" Margin="20, 20, 0, 0"   BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Далее" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

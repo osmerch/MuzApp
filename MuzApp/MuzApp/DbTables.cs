@@ -11,7 +11,7 @@ namespace MuzApp
         {
             [PrimaryKey]
             public int UserId { get; set; }
-            public string Login { get; set; }
+            public string Email { get; set; }
             public string Password { get; set; }
             public int RoleId { get; set; }
         }
@@ -21,7 +21,6 @@ namespace MuzApp
             public int UserId { get; set; }
             public string Name { get; set; }
             public string Surname { get; set; }
-            public string Email { get; set; }
             public DateTime DateOfBirth { get; set; }
         }
 
@@ -60,13 +59,13 @@ namespace MuzApp
             public int CourseId { get; set; }
 
         }
-
         public class Course
         {
             [PrimaryKey, AutoIncrement]
             public int CourseId { get; set; }
             public string Name { get; set; }
             public string Desc {  get; set; }
+            public string CourseType {  get; set; }
         }
         public class WorkSchedule
         {
@@ -88,7 +87,6 @@ namespace MuzApp
             public string Status { get; set; }  
             public string Room { get; set; }    
         }
-
         public class New
         {
             [PrimaryKey, AutoIncrement]

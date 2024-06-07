@@ -55,11 +55,17 @@ namespace MuzApp.StudentsPage
                     }
                     else
                     {
-                        // Обработайте ситуацию, если item.Key не является целым числом
-                        course.CourseId = -1; // Или какое-то другое значение по умолчанию
+                        course.CourseId = -1; 
                     }
                     return course;
                 }).ToList();
+        }
+        private async void OnCourseSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection.FirstOrDefault() is Course selectedCourse)
+            {
+                await Navigation.PushAsync(new AboutCoursePage(selectedCourse));
+            }
         }
     }
 }

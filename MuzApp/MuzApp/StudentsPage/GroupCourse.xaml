@@ -6,7 +6,7 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout x:Name="lessons" VerticalOptions="FillAndExpand">
-                    <CollectionView x:Name="ItemColl" SelectionMode="Single" >
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="OnCourseSelected" >
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="5">

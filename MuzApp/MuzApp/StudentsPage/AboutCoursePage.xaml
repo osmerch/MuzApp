@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.StudentsPage.AboutCoursePage">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <StackLayout x:Name="one"  Margin="20">
+                    <Label Text="Название курса:" FontAttributes="Bold" />
+                    <Label x:Name="CourseNameTxt" />
+
+                    <Label Text="Описание"/>
+                    <Label x:Name="DescCourseTxt" />
+                </StackLayout>
+                <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129"  Margin="20, 20, 20, 0 " x:Name="GetBtn" Clicked="GetBtn_Clicked"  TextColor="White" Text="Записаться на курсы"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

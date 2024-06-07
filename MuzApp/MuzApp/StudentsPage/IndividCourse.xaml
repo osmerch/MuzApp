@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          NavigationPage.HasNavigationBar="False"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             
              x:Class="MuzApp.StudentsPage.IndividCourse">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Индивидуальные курсы"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ScrollView>
+                <StackLayout x:Name="lessons" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Frame CornerRadius="20" BackgroundColor="#4f3129" HasShadow="True">
+                                        <StackLayout WidthRequest="340"  HorizontalOptions="Center">
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

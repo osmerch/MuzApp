@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.StudentsPage.AllCoursesPage"
+             NavigationPage.HasNavigationBar="False"
+ SelectedTabColor="White"
+ BarTextColor="White"
+             xmlns:local="clr-namespace:MuzApp"
+             BarBackgroundColor="#4f3129"
+            android:TabbedPage.ToolbarPlacement="Top"
+             xmlns:views="clr-namespace:MuzApp.StudentsPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
+    <TabbedPage.Children>
+        <views:IndividCourse Title="Индивидуальные"></views:IndividCourse>
+        <views:GroupCourse Title="Групповые"></views:GroupCourse>
+    </TabbedPage.Children>
+</TabbedPage>

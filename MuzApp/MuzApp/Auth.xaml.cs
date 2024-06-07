@@ -17,7 +17,94 @@ namespace MuzApp
         public Auth()
         {
             InitializeComponent();
-           
+        }
+        public async void AddTestWorkSchedules()
+        {
+            var db = new DB();
+            var testSchedules = new List<Course>
+            {
+                new Course
+                {
+                    CourseId = 1,
+                    Name = "Вокал",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 2,
+                    Name = "Синтезатор",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 3,
+                    Name = "Гитара",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },new Course
+                {
+                    CourseId = 4,
+                    Name = "Электрогитара",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 5,
+                    Name = "Укулеле",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 6,
+                    Name = "Скрипка",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 7,
+                    Name = "Саксафон",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 8,
+                    Name = "Флейта",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 9,
+                    Name = "Фортепиано",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 10,
+                    Name = "Баян",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+                new Course
+                {
+                    CourseId = 11,
+                    Name = "Аккордеон",
+                    Desc = "",
+                    CourseType = "индивидуальные"
+                },
+            };
+
+            foreach (var schedule in testSchedules)
+            {
+                await db.AddCourse(schedule);
+            }
         }
         private async void Ren2_Clicked(object sender, EventArgs e)
         {

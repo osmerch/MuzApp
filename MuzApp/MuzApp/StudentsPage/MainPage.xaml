@@ -6,9 +6,12 @@
             BarTextColor="White"
             BarBackgroundColor="#4f3129"
              xmlns:local="clr-namespace:MuzApp"
+             xmlns:views="clr-namespace:MuzApp.StudentsPage"
+            
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="MuzApp.MainPage">
     <local:UserNewsPage Title="Новости"></local:UserNewsPage>
     <local:LessonsPage Title="Расписание"></local:LessonsPage>
+    <views:AllCoursesPage Title="Курсы"></views:AllCoursesPage>
 </TabbedPage>

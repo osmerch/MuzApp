@@ -10,6 +10,4 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="MuzApp.MainPage">
     <local:UserNewsPage Title="Новости"></local:UserNewsPage>
-    <local:LessonsPage Title="Расписание"></local:LessonsPage>
-    <views:AllCoursesPage Title="Курсы"></views:AllCoursesPage>
 </TabbedPage>

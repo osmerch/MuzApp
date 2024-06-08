@@ -11,7 +11,6 @@
              xmlns:views="clr-namespace:MuzApp.StudentsPage"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
     <TabbedPage.Children>
-        <views:IndividCourse Title="Индивидуальные"></views:IndividCourse>
-        <views:GroupCourse Title="Групповые"></views:GroupCourse>
+
     </TabbedPage.Children>
 </TabbedPage>

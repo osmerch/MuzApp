@@ -15,10 +15,11 @@ namespace MuzApp.StudentsPage
     public partial class GroupCourse : ContentPage
     {
         FirebaseClient firebaseClient;
-
-        public GroupCourse()
+        public int idStudent;
+        public GroupCourse(int id)
         {
             InitializeComponent();
+            idStudent = id;
             firebaseClient = new FirebaseClient("https://muzicschool-f7f69-default-rtdb.firebaseio.com/");
             LoadIndividualCoursesAsync();
             Task.Run(AnimateBack);
@@ -81,7 +82,7 @@ namespace MuzApp.StudentsPage
         {
             if (e.CurrentSelection.FirstOrDefault() is Course selectedCourse)
             {
-                await Navigation.PushAsync(new AboutCoursePage(selectedCourse));
+                await Navigation.PushAsync(new AboutCoursePage(selectedCourse, idStudent));
             }
         }
     }

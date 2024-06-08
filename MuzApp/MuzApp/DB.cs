@@ -169,43 +169,5 @@ namespace MuzApp
                     return obj;
                 }).ToList();
         }
-
-
-
-
-
-
-
-
-
-      
- 
-
-        public List<New> GetNews()
-        {
-            return conn.Table<New>().ToList();
-        }
-        public New GetNew(int Id)
-        {
-            return conn.Get<New>(Id);
-        }
-        public int SaveNew(New news)
-        {
-            if (news.NewId != 0)
-            {
-                conn.Update(news);
-                return news.NewId;
-            }
-            else
-            {
-                return conn.Insert(news);
-            }
-        }
-        public int DeleteNew(int Id)
-        {
-            return conn.Delete<New>(Id);
-        }
     }
-
-  
 }

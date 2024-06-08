@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Firebase.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,23 +15,46 @@ namespace MuzApp
 	public partial class UserNewsPage : ContentPage
 	{
         public New SelectedNew { get; set; }
-        public UserNewsPage ()
-		{
-			InitializeComponent ();
-            this.BindingContext = this;
-        }
-        protected override void OnAppearing()
+        FirebaseClient firebaseClient;
+
+        public UserNewsPage()
         {
-            ShowItems();
+            InitializeComponent();
+            firebaseClient = new FirebaseClient("https://muzicschool-f7f69-default-rtdb.firebaseio.com/");
+            LoadNewsAsync();
         }
-        void ShowItems()
+
+        private async void LoadNewsAsync()
         {
-            //ItemColl.ItemsSource = App.Db.GetNews();
+            try
+            {
+                var newsItems = await GetAllNewsAsync();
+                ItemColl.ItemsSource = newsItems;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ошибка", $"Ошибка загрузки новостей: {ex.Message}", "Ок");
+            }
+        }
+
+        private async Task<List<New>> GetAllNewsAsync()
+        {
+            return (await firebaseClient
+                .Child("News")
+                .OnceAsync<New>()).Select(item =>
+                {
+                    var newsItem = item.Object;
+                    newsItem.Id = item.Key;
+                    return newsItem;
+                }).ToList();
         }
 
         private async void ItemColl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await Navigation.PushAsync(new UserAboutNew(SelectedNew));
+            if (e.CurrentSelection.FirstOrDefault() is New selectedNews)
+            {
+                await Navigation.PushAsync(new UserAboutNew(selectedNews));
+            }
         }
     }
 }

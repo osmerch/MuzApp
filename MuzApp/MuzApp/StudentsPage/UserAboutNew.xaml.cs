@@ -18,8 +18,10 @@ namespace MuzApp
         public UserAboutNew (New n)
 		{
 			InitializeComponent ();
-            this.BindingContext = n;
-            id_news = n.NewId;
+			TitleTxt.Text = n.Title;
+			DateLabel.Text = n.Date.ToString("f");
+			DescLabel.Text = n.Description;
+			NewsImage.Source = n.Image;
         }
 	}
 }

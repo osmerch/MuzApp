@@ -5,56 +5,44 @@
              x:Class="MuzApp.NewsPage">
     <ContentPage.Content>
         <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                    <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <StackLayout Grid.RowSpan="2" VerticalOptions="Start" HeightRequest="51" Background="#4f3129">
-                <Label Text="Новости" VerticalOptions="Center" Margin="0, 15, 0, 0"   HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
+            <StackLayout Grid.RowSpan="2" VerticalOptions="Start" Margin="0, 15, 0, 0" HeightRequest="51" BackgroundColor="Transparent">
+                <Label Text="Новости" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
             </StackLayout>
+    
             <ScrollView Grid.Row="1">
                 <StackLayout x:Name="admnews" VerticalOptions="FillAndExpand">
-                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged" 
-                   SelectedItem="{Binding SelectedNew, Mode=TwoWay}">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="ItemColl_SelectionChanged">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Frame CornerRadius="20" BackgroundColor="#c9b0a1" HasShadow="True">
-                                        
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="24"></RowDefinition>
-                                                    <RowDefinition Height="33"></RowDefinition>
-                                                    <RowDefinition Height="20"></RowDefinition>
-                                                    <RowDefinition Height="20"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition></ColumnDefinition>
-                                                    <ColumnDefinition></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                
-                                                <Image Grid.Column="0" Grid.RowSpan="4" Source="{Binding Image}"></Image>
-
-
-                                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" FontSize="21" FontAttributes="Bold" TextColor="Black"></Label>
-                                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" TextColor="Black"></Label>
-                                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Date}" HorizontalOptions="End"  TextColor="Black"></Label>
-                                                <Label Grid.Column="1" Grid.Row="3" Text="{Binding Time}" HorizontalOptions="Start" TextColor="Black"></Label>
-                                            </Grid>
-                                           
-                                        
+                                    <Frame CornerRadius="20" BackgroundColor="#c9b0a1" Opacity="0.8" HasShadow="True">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label  Text="{Binding Title}" FontSize="21" FontAttributes="Bold" TextColor="White"></Label>
+                                            <Label  Text="{Binding Description}" TextColor="White"></Label>
+                                            <Image  Source="{Binding Image}"></Image>
+                                            <Label  Text="{Binding Date}" HorizontalOptions="End"  TextColor="White"></Label>
+                                        </StackLayout>
                                     </Frame>
                                 </Grid>
-
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </StackLayout>
             </ScrollView>
-            <Button Grid.Row="1" android:Button.UseDefaultShadow="True" android:Button.UseDefaultPadding="True" Text="+" TextColor="White" BackgroundColor="#4f3129" CornerRadius="30" HorizontalOptions="End" Margin="0, 0, 10, 20" BorderColor="Black"    WidthRequest="70" HeightRequest="70" VerticalOptions="End" FontSize="30" Clicked="AddNew_Clicked"  x:Name="AddLesson"></Button>
+            <Button Grid.Row="1" android:Button.UseDefaultShadow="True" android:Button.UseDefaultPadding="True" Text="+" TextColor="White" BackgroundColor="Transparent" BorderWidth="1" BorderColor="White" CornerRadius="30" HorizontalOptions="End" Margin="0, 0, 10, 20" WidthRequest="70" HeightRequest="70" VerticalOptions="End" FontSize="30" Clicked="AddNew_Clicked"  x:Name="AddLesson"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

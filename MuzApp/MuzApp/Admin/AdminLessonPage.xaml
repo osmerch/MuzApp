@@ -18,8 +18,8 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout Grid.RowSpan="2" VerticalOptions="Start" Margin="0, 15, 0, 0" HeightRequest="51" BackgroundColor="Transparent">
-                    <Label Text="Расписание" VerticalOptions="Center"    HorizontalOptions="Center" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
-                </StackLayout>
+                <Label Text="Расписание" VerticalOptions="Center"    HorizontalOptions="Center" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
+            </StackLayout>
             
             <StackLayout  Grid.Row="1">
                 <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">

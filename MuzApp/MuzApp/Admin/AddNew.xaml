@@ -1,19 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MuzApp.AddNew">
+             x:Class="MuzApp.AddNew"  
+             xmlns:muzapp="clr-namespace:MuzApp"
+             NavigationPage.HasNavigationBar="False"
+         NavigationPage.HasBackButton="True">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Добавить новость" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <Label Text="Заголовок" FontSize="20" Margin="20, 20, 0, 0"></Label>
-            <Entry x:Name="title1" Margin="20, 0, 20, 0 "></Entry>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}" WidthRequest="260">
+                <StackLayout>
+                    <Label TextColor="White" Text="Добавьте новость" FontAttributes="Bold" HorizontalOptions="Center" FontSize="24" Margin="20, 20, 0, 0" ></Label>
+                    <Label Text="Заголовок" TextColor="White" FontSize="20" Margin="20, 20, 0, 0"></Label>
+                    <muzapp:CustomEntry x:Name="title1" TextColor="White" Margin="20, 0, 20, 0 "></muzapp:CustomEntry>
 
-            <Label Text="Ссылка на изображение" FontSize="20" Margin="20, 0, 0, 0"></Label>
-            <Entry x:Name="imgsrc" Margin="20, 0, 20, 0 "></Entry>
+                    <Label TextColor="White" Text="Ссылка на изображение" FontSize="20" Margin="20, 0, 0, 0"></Label>
+                    <muzapp:CustomEntry x:Name="imgsrc" TextColor="White" Margin="20, 0, 20, 0 "></muzapp:CustomEntry>
 
-            <Label Text="Описание новости" FontSize="20" Margin="20, 0, 0, 0"></Label>
-            <Editor x:Name="descTExt" Margin="20, 0, 20, 0 " HeightRequest="200"></Editor>
-            <Button x:Name="AddBtn"  FontSize="14" Text="Добавить" Margin="20, 20, 20, 0 "  Clicked="AddBtn_Clicked"  CornerRadius="10" BackgroundColor="#4f3129" TextColor="White"></Button>
-        </StackLayout>
+                    <Label TextColor="White" Text="Описание новости" FontSize="20" Margin="20, 0, 0, 0"></Label>
+                    <Editor x:Name="descTExt" TextColor="White" Margin="20, 0, 20, 0 " HeightRequest="200"></Editor>
+                    <Button x:Name="AddBtn"   Text="Добавить"   Clicked="AddBtn_Clicked" Style="{StaticResource RegularBtn}"></Button>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

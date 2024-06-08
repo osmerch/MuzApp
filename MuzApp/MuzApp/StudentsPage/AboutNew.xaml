@@ -1,23 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MuzApp.AboutNew">
+             x:Class="MuzApp.AboutNew"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout>
-                <StackLayout x:Name="one"  Margin="20">
-                    <Image Source="{Binding Image}" HorizontalOptions="Center"></Image>
-                    <Label x:Name="name" Text="{Binding Title}" FontAttributes="Bold"  FontSize="24" HorizontalTextAlignment="Center"/>
-                    <Label x:Name="desc" Text="{Binding Description}" FontSize="20" HorizontalTextAlignment="Start"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Дата публикации:" Margin="0, 40, 20, 0" FontSize="16" HorizontalTextAlignment="Start"/>
-                        <Label x:Name="datelabel" Text="{Binding Date}" Margin="0, 40, 0, 0" FontSize="16" HorizontalTextAlignment="Start"/>
-                        <Label Text="{Binding Time}" FontSize="16" Margin="0, 40, 0, 0"></Label>
-                    </StackLayout>
-                </StackLayout>
-
-                <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129" Margin="20, 20, 20, 0" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked"  TextColor="White" Text="Удалить новость"/>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout Orientation="Vertical">
+                <Frame Style="{StaticResource RegularWhiteFrame}" WidthRequest="280" Margin="20, 40, 20, 20">
+                    <ScrollView VerticalOptions="FillAndExpand">
+                        <StackLayout x:Name="one">
+                            <Label x:Name="TitleTxt" TextColor="White" FontAttributes="Bold" FontSize="24" HorizontalTextAlignment="Center" />
+                            <Label x:Name="DescLabel" FontSize="20"  TextColor="White" />
+                            <Image x:Name="NewsImage" HeightRequest="200" Aspect="AspectFill"/>
+                            <Label x:Name="DateLabel" FontSize="20"  TextColor="White" />
+                            <Button Style="{StaticResource RegularBtn}"  Margin="20, 0, 20, 0 " x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked"  Text="Удалить новость"/>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
             </StackLayout>
-        </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

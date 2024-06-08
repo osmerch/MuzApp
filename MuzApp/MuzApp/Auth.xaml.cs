@@ -32,9 +32,7 @@ namespace MuzApp
                 await Task.Delay(5000);
                 GradienBack.Animate(name: "backward", callback: backward, start: 1, end: 0, length: 5000, easing: Easing.SinIn);
                 await Task.Delay(5000);
-
             }
-
         }
         public async void AddTestWorkSchedules()
         {

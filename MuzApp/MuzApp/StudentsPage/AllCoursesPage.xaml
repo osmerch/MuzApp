@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuzApp.StudentsPage.AllCoursesPage"
              NavigationPage.HasNavigationBar="False"
- SelectedTabColor="White"
+ SelectedTabColor="AliceBlue"
              xmlns:local="clr-namespace:MuzApp"
-             BarBackgroundColor="#f2e8c9"
-            BarTextColor="#9D8741"
+             BarBackgroundColor="White"
+            BarTextColor="#3E5151"
             android:TabbedPage.ToolbarPlacement="Top"
              xmlns:views="clr-namespace:MuzApp.StudentsPage"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">

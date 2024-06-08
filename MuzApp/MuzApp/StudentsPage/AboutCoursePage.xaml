@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuzApp.StudentsPage.AboutCoursePage"
              NavigationPage.IconColor="White"
-             NavigationPage.HasBackButton="True">
+             NavigationPage.HasBackButton="True"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
             <Image x:Name="BackgroundImage" Aspect="AspectFill" Opacity="0.7" />
@@ -15,8 +16,7 @@
                             <Label x:Name="DescCourseTxt" FontSize="Body"  TextColor="White" />
                         </StackLayout>
                     </Frame>
-
-                    <Button FontSize="14"  CornerRadius="10" BackgroundColor="#826A8F" Opacity="1" Margin="20, 0, 20, 20 " x:Name="GetBtn" Clicked="GetBtn_Clicked" TextColor="White" Text="Записаться на курс"/>
+                    <Button Style="{StaticResource RegularBtn}" Margin="20, 0, 20, 20 " x:Name="GetBtn" Clicked="GetBtn_Clicked" Text="Записаться на курс"/>
                 </StackLayout>
             </ScrollView>
         </Grid>

@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MuzApp.Reg.RegPage2">
+             x:Class="MuzApp.Reg.RegPage2"
+             BackgroundColor="Transparent"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="True">
     <ContentPage.Content>
         <Grid>
             <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">

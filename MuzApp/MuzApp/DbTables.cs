@@ -25,7 +25,11 @@ namespace MuzApp
             public string Surname { get; set; }
             public DateTime DateOfBirth { get; set; }
         }
-
+        public class StudentCourse
+        {
+            public int StudentId { get; set; }
+            public int CourseId { get; set; }
+        }
         public class Teacher
         {
             [PrimaryKey]

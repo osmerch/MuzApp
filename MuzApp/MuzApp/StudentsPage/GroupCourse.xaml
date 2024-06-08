@@ -7,8 +7,8 @@
             <BoxView x:Name="GradienBack" Scale="2" AnchorX="1" AnchorY="0">
                 <BoxView.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
-                        <GradientStop Color="#DECBA4" Offset="0.1"></GradientStop>
-                        <GradientStop Color="#3E5151" Offset="1"></GradientStop>
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
                     </LinearGradientBrush>
                 </BoxView.Background>
             </BoxView>

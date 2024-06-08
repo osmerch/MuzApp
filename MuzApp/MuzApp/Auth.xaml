@@ -18,8 +18,8 @@
                     <Label Text="Вход" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="White"></Label>
                     <Label Text="Email" TextColor="White" FontSize="20" Margin="20, 20, 0, 0" ></Label>
                     <muzapp:CustomEntry TextColor="White" Margin="20, 0, 20, 0" x:Name="Log"></muzapp:CustomEntry>
-                    <Label Text="Пароль" TextColor="White" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-                    <muzapp:CustomEntry TextColor="White"  IsPassword="True" Margin="20, 0, 20, 50" x:Name="Pas"></muzapp:CustomEntry>
+                    <Label Text="Пароль" TextColor="White" FontSize="20" Margin="20, 0, 0, 0" ></Label>
+                    <muzapp:CustomEntry TextColor="White"  IsPassword="True" Margin="20, 0, 20, 20" x:Name="Pas"></muzapp:CustomEntry>
                     <Button Margin="20, 0, 20, 0" Style="{StaticResource RegularBtn}" WidthRequest="200" Text="Войти"  Clicked="Ren2_Clicked"  x:Name="Ren2"/>
                     <Button Margin="20, 0, 20, 0" Style="{StaticResource RegularBtn}"  WidthRequest="200" Text="Создать аккаунт"  Clicked="Ren3_Clicked"  x:Name="Ren3"/>
                 </StackLayout>

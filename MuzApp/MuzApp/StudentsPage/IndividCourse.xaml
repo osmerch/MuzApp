@@ -10,9 +10,8 @@
             <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
                 <BoxView.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
-                        <GradientStop Color="#f05053" Offset="0.0"></GradientStop>
-                        <GradientStop Color="#fffbd5" Offset="1"></GradientStop>
-
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
                     </LinearGradientBrush>
                 </BoxView.Background>
             </BoxView>
@@ -28,7 +27,7 @@
                                         </Grid.RowDefinitions>
                                         <Frame CornerRadius="20" BackgroundColor="White" Opacity="0.7" HasShadow="True">
                                             <StackLayout WidthRequest="340"  HorizontalOptions="Center">
-                                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="21" TextColor="#531622	"></Label>
+                                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="21" TextColor="#3E5151	"></Label>
                                             </StackLayout>
                                         </Frame>
                                     </Grid>

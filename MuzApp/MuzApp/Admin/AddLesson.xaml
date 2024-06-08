@@ -1,49 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MuzApp.AddLesson">
+             x:Class="MuzApp.AddLesson"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="True">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Добавить занятие" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <Label Text="Курс:" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <Picker x:Name="coursePicker" Margin="20, 0, 20, 0 " Title="Курсы" ItemDisplayBinding="{Binding Name}"></Picker>
-            
-            <Label Text="Преподаватель:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-            <Picker x:Name="teacherPicker" Margin="20, 0, 20, 0 " Title="Преподаватель" ItemDisplayBinding="{Binding Name}"></Picker>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}" WidthRequest="260">
+                <StackLayout>
+                    <Label Text="Добавить занятие" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20"></Label>
+                    <Label TextColor="White" Text="Курс:" FontSize="20"></Label>
+                    <Picker TextColor="White" TitleColor="White" x:Name="coursePicker" Title="Курсы" ItemDisplayBinding="{Binding Name}"></Picker>
 
-            <Label Text="Аудитория:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-            <Picker  Margin="20, 0, 20, 0 " x:Name="AudPicker" SelectedIndexChanged="AudPicker_SelectedIndexChanged">
-                <Picker.Items >
-                    <x:String>10 аудитория</x:String>
-                    <x:String>11 аудитория</x:String>
-                    <x:String>12 аудитория</x:String>
-                    <x:String>13 аудитория</x:String>
-                    <x:String>14 аудитория</x:String>
-                    <x:String>Большой зал</x:String>
-                    <x:String>Малый зал</x:String>
-                </Picker.Items>
-            </Picker>
-            
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Время:" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-                <Label x:Name="timeText" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-                
-            </StackLayout>
-            <StackLayout>
-                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                    <StackLayout x:Name="timeSlotsStack" Orientation="Horizontal">
+                    <Label TextColor="White" Text="Преподаватель:" FontSize="20"></Label>
+                    <Picker TextColor="White" TitleColor="White" x:Name="teacherPicker" Title="Преподаватель" ItemDisplayBinding="{Binding Name}"></Picker>
+
+                    <Label TextColor="White" Text="Аудитория:" FontSize="20" ></Label>
+                    <Picker TextColor="White" x:Name="AudPicker" SelectedIndexChanged="AudPicker_SelectedIndexChanged">
+                        <Picker.Items >
+                            <x:String>10 аудитория</x:String>
+                            <x:String>11 аудитория</x:String>
+                            <x:String>12 аудитория</x:String>
+                            <x:String>13 аудитория</x:String>
+                            <x:String>14 аудитория</x:String>
+                            <x:String>Большой зал</x:String>
+                            <x:String>Малый зал</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label TextColor="White" Text="Дата" FontSize="20" ></Label>
+                    <DatePicker TextColor="White" Format="D" DateSelected="datePic_DateSelected" x:Name="datePic"/>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="White" Text="Время:" FontSize="20" ></Label>
+                        <Label x:Name="timeText" FontSize="20" ></Label>
                     </StackLayout>
-                </ScrollView>
-            </StackLayout>
+
+                    <StackLayout>
+                        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                            <StackLayout x:Name="timeSlotsStack" Orientation="Horizontal">
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                    <Button x:Name="AddBtn" Style="{StaticResource RegularBtn}" Text="Добавить" Clicked="AddBtn_Clicked" ></Button>
+                </StackLayout>
+            </Frame>
            
-               
-            <Label Text="Дата" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-            <Label x:Name="dText" FontSize="20" Margin="20, 0, 0, 0" ></Label>
-
-
-            <DatePicker Margin="20, 0, 20, 0" Format="D" DateSelected="datePic_DateSelected" x:Name="datePic"/>
-
-            <Button x:Name="AddBtn"  Margin="20, 20, 20, 0 " FontSize="14" Text="Добавить" Clicked="AddBtn_Clicked"  CornerRadius="10" BackgroundColor="#4f3129" TextColor="White"></Button>
-        </StackLayout>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

@@ -27,9 +27,8 @@ namespace MuzApp
             this.BindingContext = this;
             CreateCalendar();
             LoadDataAsync();
-            //LoadLessonsForDate(DateTime.Today);
-
         }
+
         private async Task<List<T>> GetAllAsync<T>(string childPath)
         {
             return (await firebaseClient
@@ -56,12 +55,14 @@ namespace MuzApp
                 {
                     CornerRadius = 10,
                     Margin = 5,
-                    WidthRequest = 67,
-                    FontSize = 12,
+                    WidthRequest = 70,
+                    FontSize = 11,
                     Text = date.ToString("MMM dd"),
                     BindingContext = date,
-                    BackgroundColor = date == DateTime.Today ? Color.LightBlue : Color.Default,
-                    TextColor = Color.White
+                    BackgroundColor = date == DateTime.Today ? Color.LightBlue : Color.Transparent,
+                    TextColor = Color.White,
+                    BorderColor = Color.White,
+                    BorderWidth = 1
                 };
                 dateBtn.Clicked += DateBtn_Clicked;
                 HorizontalClendar.Children.Add(dateBtn);
@@ -80,11 +81,11 @@ namespace MuzApp
                     }
                     else if (btnDate == _selectedDate)
                     {
-                        btn.BackgroundColor = Color.LightGreen;
+                        btn.BackgroundColor = Color.FromHex("#C9B0A1");
                     }
                     else
                     {
-                        btn.BackgroundColor = Color.DarkKhaki;
+                        btn.BackgroundColor = Color.Transparent;
                     }
                 }
 
@@ -106,11 +107,11 @@ namespace MuzApp
                 }
                 else if(btnDate == _selectedDate) 
                 {
-                    btn.BackgroundColor = Color.LightGreen;
+                    btn.BackgroundColor = Color.FromHex("#C9B0A1");
                 }
                 else
                 {
-                    btn.BackgroundColor = Color.DarkKhaki;
+                    btn.BackgroundColor = Color.Transparent;
                 }
             }
             testLabel.Text = selectedDate.ToString("dddd");

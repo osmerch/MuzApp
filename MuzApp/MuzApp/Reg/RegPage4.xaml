@@ -1,17 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MuzApp.Reg.RegPage4">
+             xmlns:muzapp="clr-namespace:MuzApp"
+             x:Class="MuzApp.Reg.RegPage4"
+             NavigationPage.HasNavigationBar="False"
+NavigationPage.HasBackButton="True">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Регистрация" VerticalOptions="Center" Margin="0, 0, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}">
+                <StackLayout>
+                    <Label Text="Вы на финишной прямой!  Придумайте пароль" HorizontalTextAlignment="Center" VerticalOptions="Center"  HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="White"></Label>
 
-            <Label Text="Пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <Entry IsPassword="True" Margin="20, -20, 0, 0" x:Name="Pas"/>
-            <Label Text="Повторить пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <Entry  IsPassword="True" Margin="20, -20, 0, 0" x:Name="PasRep"/>
+                    <Label Text="Пароль" FontSize="20" TextColor="White" Margin="20, 20, 0, 0" ></Label>
+                    <muzapp:CustomEntry IsPassword="True" Margin="20, 0, 20, 0" x:Name="Pas"/>
+                    <Label TextColor="White" Text="Повторить пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+                    <muzapp:CustomEntry  IsPassword="True" Margin="20, 0, 20, 0" x:Name="PasRep"/>
 
-            <Button TextColor="White" Margin="20, 20, 0, 0"   BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
-        </StackLayout>
+                    <Button  Margin="20, 20, 20, 0" Style="{StaticResource RegularBtn}"  Text="Создать аккаунт" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
+
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

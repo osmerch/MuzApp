@@ -24,11 +24,7 @@ namespace MuzApp
             Device.SetFlags(new[] { "Brush_Experimental" });
             MainPage = new Auth();
 
-            MainPage = new NavigationPage(new Auth()) 
-            {
-                BarBackgroundColor = Color.FromHex("#826A8F"),
-                BarTextColor = Color.White,
-            };
+            MainPage = new CustomNavigationPage(new Auth());
 
         }
 

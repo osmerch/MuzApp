@@ -38,6 +38,20 @@ namespace MuzApp
 
             datePic.MinimumDate = DateTime.Today;
             datePic.MaximumDate = DateTime.Today.AddDays(30);
+            Task.Run(AnimateBack);
+        }
+        private async void AnimateBack()
+        {
+            Action<double> forward = input => GradienBack.AnchorY = input;
+            Action<double> backward = input => GradienBack.AnchorY = input;
+
+            while (true)
+            {
+                GradienBack.Animate(name: "forward", callback: forward, start: 0, end: 1, length: 5000, easing: Easing.SinIn);
+                await Task.Delay(5000);
+                GradienBack.Animate(name: "backward", callback: backward, start: 1, end: 0, length: 5000, easing: Easing.SinIn);
+                await Task.Delay(5000);
+            }
         }
         private async Task<List<T>> GetAllAsync<T>(string childPath)
         {
@@ -212,6 +226,7 @@ namespace MuzApp
                     {
                         await db.AddLesson(lesson);
                         await DisplayAlert("Успешно", "Вы зарегистрированы", "Ок");
+                        await Navigation.PopAsync();
                     }
                     catch
                     {
@@ -228,7 +243,6 @@ namespace MuzApp
         private void datePic_DateSelected(object sender, DateChangedEventArgs e)
         {
             datepic = e.NewDate.ToString("dd/MM/yyyy");
-            dText.Text = datepic;
             if (teacherPicker.SelectedIndex != -1)
             {
                 Teacher selectedTeacher = (Teacher)teacherPicker.SelectedItem;

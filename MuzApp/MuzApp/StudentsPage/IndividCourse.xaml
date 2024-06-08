@@ -6,27 +6,39 @@
              
              x:Class="MuzApp.StudentsPage.IndividCourse">
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView>
-                <StackLayout x:Name="lessons" VerticalOptions="FillAndExpand">
-                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="OnCourseSelected">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Frame CornerRadius="20" BackgroundColor="#4f3129" HasShadow="True">
-                                        <StackLayout WidthRequest="340"  HorizontalOptions="Center">
-                                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="21" TextColor="Black"></Label>
-                                        </StackLayout>
-                                    </Frame>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </StackLayout>
-            </ScrollView>
-        </StackLayout>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#f05053" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#fffbd5" Offset="1"></GradientStop>
+
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout>
+                <ScrollView>
+                    <StackLayout x:Name="lessons" VerticalOptions="FillAndExpand">
+                        <CollectionView x:Name="ItemColl" SelectionMode="Single"  SelectionChanged="OnCourseSelected">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Frame CornerRadius="20" BackgroundColor="White" Opacity="0.7" HasShadow="True">
+                                            <StackLayout WidthRequest="340"  HorizontalOptions="Center">
+                                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="21" TextColor="#531622	"></Label>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

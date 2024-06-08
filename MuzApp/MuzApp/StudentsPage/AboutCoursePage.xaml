@@ -1,19 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MuzApp.StudentsPage.AboutCoursePage">
+             x:Class="MuzApp.StudentsPage.AboutCoursePage"
+             NavigationPage.IconColor="White"
+             NavigationPage.HasBackButton="True">
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout>
-                <StackLayout x:Name="one"  Margin="20">
-                    <Label Text="Название курса:" FontAttributes="Bold" />
-                    <Label x:Name="CourseNameTxt" />
+        <Grid>
+            <Image x:Name="BackgroundImage" Aspect="AspectFill" Opacity="0.7" />
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Frame BackgroundColor="Black" Opacity="0.6" CornerRadius="15" Margin="20">
+                        <StackLayout x:Name="one">
+                            <Label x:Name="CourseNameTxt" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="Title" TextColor="White"/>
+                            <Label x:Name="DescCourseTxt" FontSize="Body"  TextColor="White" />
+                        </StackLayout>
+                    </Frame>
 
-                    <Label Text="Описание"/>
-                    <Label x:Name="DescCourseTxt" />
+                    <Button FontSize="14"  CornerRadius="10" BackgroundColor="#826A8F" Opacity="1" Margin="20, 0, 20, 20 " x:Name="GetBtn" Clicked="GetBtn_Clicked" TextColor="White" Text="Записаться на курс"/>
                 </StackLayout>
-                <Button FontSize="14"  CornerRadius="10" BackgroundColor="#4f3129"  Margin="20, 20, 20, 0 " x:Name="GetBtn" Clicked="GetBtn_Clicked"  TextColor="White" Text="Записаться на курсы"/>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

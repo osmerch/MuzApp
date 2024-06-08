@@ -4,15 +4,27 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="MuzApp.Auth">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Вход" VerticalOptions="Center" Margin="0, 155, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
-            <Label Text="Логин" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <muzapp:CustomEntry Margin="20, 0, 20, 0" x:Name="Log"></muzapp:CustomEntry>
-            <Label Text="Пароль" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-            <muzapp:CustomEntry  IsPassword="True" Margin="20, 0, 20, 50" x:Name="Pas"></muzapp:CustomEntry>
-            <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Войти" FontSize="13" Clicked="Ren2_Clicked"  x:Name="Ren2"/>
-            <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Создать аккаунт" FontSize="13" Clicked="Ren3_Clicked"  x:Name="Ren3"/>
-            <Button TextColor="White" Margin="20, 0, 20, 0" BackgroundColor="#4f3129" CornerRadius="10" WidthRequest="200" Text="Test" FontSize="13" Clicked="Ren4_Clicked"  x:Name="Ren4"/>
-        </StackLayout>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}">
+                <StackLayout>
+                    <Label Text="Вход" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="White"></Label>
+                    <Label Text="Email" TextColor="White" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+                    <muzapp:CustomEntry TextColor="White" Margin="20, 0, 20, 0" x:Name="Log"></muzapp:CustomEntry>
+                    <Label Text="Пароль" TextColor="White" FontSize="20" Margin="20, 20, 0, 0" ></Label>
+                    <muzapp:CustomEntry TextColor="White"  IsPassword="True" Margin="20, 0, 20, 50" x:Name="Pas"></muzapp:CustomEntry>
+                    <Button Margin="20, 0, 20, 0" Style="{StaticResource RegularBtn}" WidthRequest="200" Text="Войти"  Clicked="Ren2_Clicked"  x:Name="Ren2"/>
+                    <Button Margin="20, 0, 20, 0" Style="{StaticResource RegularBtn}"  WidthRequest="200" Text="Создать аккаунт"  Clicked="Ren3_Clicked"  x:Name="Ren3"/>
+                </StackLayout>
+            </Frame>
+           
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

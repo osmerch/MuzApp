@@ -4,9 +4,9 @@
              x:Class="MuzApp.StudentsPage.AllCoursesPage"
              NavigationPage.HasNavigationBar="False"
  SelectedTabColor="White"
- BarTextColor="White"
              xmlns:local="clr-namespace:MuzApp"
-             BarBackgroundColor="#4f3129"
+             BarBackgroundColor="#f2e8c9"
+            BarTextColor="#9D8741"
             android:TabbedPage.ToolbarPlacement="Top"
              xmlns:views="clr-namespace:MuzApp.StudentsPage"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">

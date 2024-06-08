@@ -1,23 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:muzapp="clr-namespace:MuzApp"
              NavigationPage.HasNavigationBar="False"
              x:Class="MuzApp.RegPage">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                <Label Text="Регистрация" VerticalOptions="Center" Margin="0, 0, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}">
+                <StackLayout Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Label Text="Регистрация" VerticalOptions="Center"  HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="White"></Label>
 
-                <Label Text="Имя" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-                <Entry  Margin="20, -20, 0, 0" x:Name="NameText"/>
-                
-                <Label Text="Фамилия" FontSize="20" Margin="20, 20, 0, 0" ></Label>
-                <Entry  Margin="20, -20, 0, 0" x:Name="SurnameText"/>
+                    <Label TextColor="White" Text="Имя" FontSize="20" ></Label>
+                    <muzapp:CustomEntry TextColor="White" x:Name="NameText"/>
 
-                <Button TextColor="White" Margin="20, 20, 0, 0"   BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Далее" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
-                <Button TextColor="White" Margin="20, 0, 0, 0"  BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Назад ко входу" FontSize="13" Clicked="EnterBtn_Clicked"  x:Name="EnterBtn"/>
+                    <Label TextColor="White" Text="Фамилия" FontSize="20"></Label>
+                    <muzapp:CustomEntry TextColor="White"  x:Name="SurnameText"/>
 
-            </StackLayout>
-        </ScrollView>
+                    <Button Margin="0, 20, 0, 0" Style="{StaticResource RegularBtn}" WidthRequest="200" Text="Далее" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
+                    <Button Style="{StaticResource RegularBtn}" WidthRequest="200" Text="Назад ко входу" Clicked="EnterBtn_Clicked"  x:Name="EnterBtn"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+       
     </ContentPage.Content>
 </ContentPage>

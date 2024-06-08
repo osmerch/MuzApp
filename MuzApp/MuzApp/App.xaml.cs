@@ -21,11 +21,13 @@ namespace MuzApp
         public App()
         {
             InitializeComponent();
-
+            Device.SetFlags(new[] { "Brush_Experimental" });
             MainPage = new Auth();
+
             MainPage = new NavigationPage(new Auth()) 
             {
-                BarBackgroundColor = Color.FromRgb(79, 49, 41)
+                BarBackgroundColor = Color.FromHex("#826A8F"),
+                BarTextColor = Color.White,
             };
 
         }

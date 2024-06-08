@@ -3,10 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MuzApp.Reg.RegPage2">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Укажите свою дату рождения" VerticalOptions="Center" Margin="0, 0, 0, 0"   HorizontalOptions="Center" FontAttributes="Bold" FontSize="24" TextColor="Black"></Label>
-            <DatePicker x:Name="DateOfBirthPic" ></DatePicker>
-            <Button TextColor="White" Margin="20, 20, 0, 0"   BackgroundColor="#4f3129" CornerRadius="50" WidthRequest="200" Text="Далее" FontSize="13" Clicked="Reg2_Clicked"  x:Name="Reg2"/>
-        </StackLayout>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}">
+                <StackLayout>
+                    <Label Text="Укажите свою дату рождения" VerticalOptions="Center" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" FontSize="24"></Label>
+                    <DatePicker x:Name="DateOfBirthPic" TextColor="White" ></DatePicker>
+                    <Button  Margin="0, 20, 0, 0" Style="{StaticResource RegularBtn}" Text="Далее" Clicked="Reg2_Clicked" x:Name="Reg2"/>
+                </StackLayout>
+            </Frame>
+           
+        </Grid>
+       
     </ContentPage.Content>
 </ContentPage>

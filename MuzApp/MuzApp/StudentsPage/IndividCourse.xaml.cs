@@ -21,6 +21,23 @@ namespace MuzApp.StudentsPage
             InitializeComponent();
             firebaseClient = new FirebaseClient("https://muzicschool-f7f69-default-rtdb.firebaseio.com/");
             LoadIndividualCoursesAsync();
+            Task.Run(AnimateBack);
+
+        }
+        private async void AnimateBack()
+        {
+            Action<double> forward = input => GradienBack.AnchorY = input;
+            Action<double> backward = input => GradienBack.AnchorY = input;
+
+            while (true)
+            {
+                GradienBack.Animate(name: "forward", callback: forward, start: 0, end: 1, length: 5000, easing: Easing.SinIn);
+                await Task.Delay(5000);
+                GradienBack.Animate(name: "backward", callback: backward, start: 1, end: 0, length: 5000, easing: Easing.SinIn);
+                await Task.Delay(5000);
+
+            }
+
         }
 
         private async void LoadIndividualCoursesAsync()

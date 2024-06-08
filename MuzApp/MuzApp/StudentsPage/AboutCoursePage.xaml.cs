@@ -19,8 +19,12 @@ namespace MuzApp.StudentsPage
             selectedCourse = course;
             CourseNameTxt.Text = course.Name;
             DescCourseTxt.Text = course.Desc;
+            SetBackgroundImage(course.ImageUrl);
         }
-
+        private void SetBackgroundImage(string imageUrl)
+        {
+            BackgroundImage.Source = ImageSource.FromUri(new Uri(imageUrl));
+        }
         private void GetBtn_Clicked(object sender, EventArgs e)
         {
 

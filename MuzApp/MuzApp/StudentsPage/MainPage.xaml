@@ -2,9 +2,8 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             NavigationPage.HasNavigationBar="False"
-            SelectedTabColor="White"
-            BarTextColor="White"
-            BarBackgroundColor="#4f3129"
+            BarTextColor="#9D8741"
+            BarBackgroundColor="#f2e8c9"
              xmlns:local="clr-namespace:MuzApp"
              xmlns:views="clr-namespace:MuzApp.StudentsPage"
             

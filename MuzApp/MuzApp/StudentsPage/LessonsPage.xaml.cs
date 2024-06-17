@@ -122,16 +122,13 @@ namespace MuzApp
         {
             try
             {
-                // Получение данных из Firebase
                 courses = await GetAllAsync<Course>("Course");
                 teachers = await GetAllAsync<Teacher>("Teacher");
                 lessons = await GetAllAsync<Lesson>("Lesson");
 
-                // Получение курсов, на которые записан студент
                 var studentCourses = await GetAllAsync<StudentCourse>("Student_Course");
                 var studentCourseIds = studentCourses.Where(sc => sc.StudentId == studentId).Select(sc => sc.CourseId).ToList();
 
-                // Отфильтруйте уроки для курсов студента
                 lessons = lessons.Where(lesson => studentCourseIds.Contains(lesson.CourseId)).ToList();
             }
             catch (Exception ex)

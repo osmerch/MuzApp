@@ -15,7 +15,6 @@ namespace MuzApp
 
         private void Init()
         {
-            // Установите основные свойства
             BarBackgroundColor = Color.Transparent;
             BarTextColor = Color.White;
         }

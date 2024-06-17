@@ -48,50 +48,45 @@ namespace MuzApp.Reg
         {
             try
             {
-                if (Pas.Text != "" && PasRep.Text != "")
+                if (string.IsNullOrWhiteSpace(Pas.Text) || string.IsNullOrWhiteSpace(PasRep.Text))
                 {
-                    if (Pas.Text == PasRep.Text)
-                    {
-                        var db = new DB();
-
-                        string password = PasRep.Text;
-                        UserDataAuth data = new UserDataAuth
-                        {
-                            UserId = IdStudent,
-                            Email = emailStudent,
-                            Password = password,
-                            RoleId = 1
-                        };
-                        Student student = new Student
-                        {
-                            UserId = IdStudent,
-                            Name = NameStudent,
-                            Surname = SurameStudent,
-                            DateOfBirth =dateStudent,
-                        };
-                        try
-                        {
-                            await db.AddUserData(data);
-                            await db.AddStudent(student);
-                            await DisplayAlert("Ошибка", "Регистрация прошла успешно!", "Ок");
-                            await Navigation.PushAsync(new Auth());
-                        }
-                        catch
-                        {
-                            await DisplayAlert("Ошибка", "Ошибка подключения Firebase. Проверьте связь с сервером", "Ок");
-                        }
-                        
-
-                    }
-                    else
-                    {
-                        await DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
-                    }
-                    
+                    await DisplayAlert("Ошибка", "Заполните все поля", "Ок");
+                    return;
                 }
-                else
+
+                if (Pas.Text != PasRep.Text)
                 {
-                    await DisplayAlert("Ошибка", "Проверьте данные", "Ок");
+                    await DisplayAlert("Ошибка", "Пароли не совпадают", "Ок");
+                    return;
+                }
+
+                var db = new DB();
+
+                string password = PasRep.Text;
+                UserDataAuth data = new UserDataAuth
+                {
+                    UserId = IdStudent,
+                    Email = emailStudent,
+                    Password = password,
+                    RoleId = 1
+                };
+                Student student = new Student
+                {
+                    UserId = IdStudent,
+                    Name = NameStudent,
+                    Surname = SurameStudent,
+                    DateOfBirth = dateStudent,
+                };
+                try
+                {
+                    await db.AddUserData(data);
+                    await db.AddStudent(student);
+                    await DisplayAlert("Успех", "Регистрация прошла успешно!", "Ок");
+                    await Navigation.PushAsync(new Auth());
+                }
+                catch
+                {
+                    await DisplayAlert("Ошибка", "Ошибка подключения Firebase. Проверьте связь с сервером", "Ок");
                 }
             }
             catch

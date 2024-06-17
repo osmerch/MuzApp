@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuzApp.Android", "MuzApp\MuzApp.Android\MuzApp.Android.csproj", "{FFD1C8B7-B8E5-4A97-93E4-12F546C7D58C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuzApp", "MuzApp\MuzApp\MuzApp.csproj", "{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuzApp", "MuzApp\MuzApp\MuzApp.csproj", "{2F4D6627-5417-47A8-BE7D-EC42F9CCB22A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MuzApp.TeachersPages.TeacherPage"
+               NavigationPage.HasNavigationBar="False"
+   SelectedTabColor="AliceBlue"
+   BarTextColor="Black"
+   BarBackgroundColor="White"
+xmlns:local="clr-namespace:MuzApp"
+ xmlns:xxx="clr-namespace:MuzApp.TeachersPages"
+xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+android:TabbedPage.ToolbarPlacement="Bottom">
+    <local:UserNewsPage Title="Новости"></local:UserNewsPage>
+</TabbedPage>

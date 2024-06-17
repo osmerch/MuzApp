@@ -29,7 +29,6 @@ namespace MuzApp
         List<Teacher_Course> teacher_Courses;
         FirebaseClient firebaseClient;
         List<WorkSchedule> workSchedules;
-        //List<Lesson> lessons;
         public AddLesson()
         {
             InitializeComponent();

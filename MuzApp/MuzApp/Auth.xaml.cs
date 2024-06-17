@@ -124,6 +124,12 @@ namespace MuzApp
         }
         private async void Ren2_Clicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Log.Text) || string.IsNullOrWhiteSpace(Pas.Text))
+            {
+                await DisplayAlert("Ошибка", "Введите логин и пароль", "Ок");
+                return;
+            }
+
             List<UserDataAuth> Users = new List<UserDataAuth>();
             var db = new DB();
             try
@@ -131,21 +137,24 @@ namespace MuzApp
                 Users = await db.GetAllUsersData();
                 foreach (var u in Users)
                 {
-                    if (u.Email == Log.Text && u.Password == Pas.Text && u.RoleId == 1)
+                    if (u.Email == Log.Text && u.Password == Pas.Text)
                     {
-                        await Navigation.PushAsync(new MainPage(u.UserId));
-                        return;
-                    }
-                    else if (u.Email == Log.Text && u.Password == Pas.Text && u.RoleId == 2)
-                    {
-                        await Navigation.PushAsync(new AdminPage());
+                        if (u.RoleId == 1)
+                        {
+                            await Navigation.PushAsync(new MainPage(u.UserId));
+                        }
+                        else if (u.RoleId == 2)
+                        {
+                            await Navigation.PushAsync(new AdminPage());
+                        }
                         return;
                     }
                 }
+                await DisplayAlert("Ошибка", "Неверный логин или пароль", "Ок");
             }
             catch
             {
-                await DisplayAlert("Ошибка", "Ошибка firebase", "Ок");
+                await DisplayAlert("Ошибка", "Ошибка при получении данных", "Ок");
             }
         }
 

@@ -121,7 +121,6 @@ namespace MuzApp
         {
             try
             {
-                // Получение данных из Firebase
                 courses = await GetAllAsync<Course>("Course");
                 teachers = await GetAllAsync<Teacher>("Teacher");
                 lessons = await GetAllAsync<Lesson>("Lesson");

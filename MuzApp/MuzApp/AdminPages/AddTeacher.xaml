@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:muzapp="clr-namespace:MuzApp"
+             x:Class="MuzApp.AdminPages.AddTeacher">
+    <ContentPage.Content>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <Frame Style="{StaticResource RegularWhiteFrame}" WidthRequest="260">
+                <StackLayout>
+                    <Label Text="Добавить преподавателя" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20"></Label>
+                    <Label TextColor="White" Text="Имя:" FontSize="20" ></Label>
+                    <muzapp:CustomEntry TextColor="White" x:Name="NameEntry"/>
+                    <Label TextColor="White" Text="Фамилия:" FontSize="20" ></Label>
+
+                    <muzapp:CustomEntry TextColor="White" x:Name="SurnameEntry"/>
+
+                    <Label TextColor="White" Text="email:" FontSize="20" ></Label>
+                    <muzapp:CustomEntry TextColor="White" x:Name="EmailEntry"/>
+                    <Label TextColor="White" Text="Описание:" FontSize="20" ></Label>
+                    <Editor x:Name="DescriptionEntry" TextColor="White" HeightRequest="100"/>
+                    <Label TextColor="White" Text="Пароль" FontSize="20" ></Label>
+                    <muzapp:CustomEntry TextColor="White" x:Name="PasswordEntry" IsPassword="True"/>
+                    <Button x:Name="AddBtn" Style="{StaticResource RegularBtn}" Text="Добавить" Clicked="OnAddClicked" ></Button>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

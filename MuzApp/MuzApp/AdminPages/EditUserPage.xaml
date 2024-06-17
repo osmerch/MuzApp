@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:muzapp="clr-namespace:MuzApp"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="MuzApp.AdminPages.EditUserPage">
+    <ContentPage.Content>
+        <Grid>
+            <BoxView x:Name="GradienBack" Scale="2" AnchorX="0" AnchorY="1">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                        <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout>
+                <Frame Style="{StaticResource RegularWhiteFrame}">
+                    <StackLayout>
+                        <Label Text="Редактировать пользователя" FontAttributes="Bold" FontSize="24" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Имя" FontSize="18"/>
+                        <muzapp:CustomEntry x:Name="NameEntry"/>
+                        <Label Text="Фамилия" FontSize="18"/>
+                        <muzapp:CustomEntry x:Name="SurnameEntry"/>
+                        <Label Text="Email" FontSize="18"/>
+                        <muzapp:CustomEntry x:Name="EmailEntry"/>
+                        <Label Text="Пароль" FontSize="18"/>
+                        <muzapp:CustomEntry x:Name="PasswordEntry" IsPassword="True"/>
+                        <Button Text="Сохранить" Style="{StaticResource RegularBtn}" Clicked="OnSaveClicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

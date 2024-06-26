@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using MuzApp.TeachersPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,6 @@ namespace MuzApp
         {
             InitializeComponent();
             Task.Run(AnimateBack);
-
         }
 
         private async void AnimateBack()
@@ -37,93 +37,169 @@ namespace MuzApp
         public async void AddTestWorkSchedules()
         {
             var db = new DB();
-            var testSchedules = new List<Course>
+            var testSchedules = new List<WorkSchedule>
             {
-                new Course
+               
+                new WorkSchedule
                 {
-                    CourseId = 1,
-                    Name = "Вокал",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Monday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 2,
-                    Name = "Синтезатор",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Tuesday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(17),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 3,
-                    Name = "Гитара",
-                    Desc = "",
-                    CourseType = "индивидуальные"
-                },new Course
-                {
-                    CourseId = 4,
-                    Name = "Электрогитара",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Thursday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 5,
-                    Name = "Укулеле",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Saturday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 6,
-                    Name = "Скрипка",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Sunday,
+                    StartTime = TimeSpan.FromHours(11),
+                    EndTime = TimeSpan.FromHours(13),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 7,
-                    Name = "Саксафон",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Wednesday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(16),
                 },
-                new Course
+                 new WorkSchedule
                 {
-                    CourseId = 8,
-                    Name = "Флейта",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Friday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 9,
-                    Name = "Фортепиано",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Monday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 10,
-                    Name = "Баян",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Tuesday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(17),
                 },
-                new Course
+                new WorkSchedule
                 {
-                    CourseId = 11,
-                    Name = "Аккордеон",
-                    Desc = "",
-                    CourseType = "индивидуальные"
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Thursday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
                 },
+                new WorkSchedule
+                {
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Saturday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(15),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Sunday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(13),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 757495946,
+                    Day = DayOfWeek.Wednesday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(16),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 891019304,
+                    Day = DayOfWeek.Friday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Friday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Monday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Tuesday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(17),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Thursday,
+                    StartTime = TimeSpan.FromHours(10),
+                    EndTime = TimeSpan.FromHours(15),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Saturday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(15),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Sunday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(13),
+                },
+                new WorkSchedule
+                {
+                    TeacherId = 617990759,
+                    Day = DayOfWeek.Wednesday,
+                    StartTime = TimeSpan.FromHours(9),
+                    EndTime = TimeSpan.FromHours(16),
+                },
+
+
             };
 
             foreach (var schedule in testSchedules)
             {
-                await db.AddCourse(schedule);
+                await db.AddWorkSchedule(schedule);
             }
         }
         private async void Ren2_Clicked(object sender, EventArgs e)
         {
+
+           
             if (string.IsNullOrWhiteSpace(Log.Text) || string.IsNullOrWhiteSpace(Pas.Text))
             {
                 await DisplayAlert("Ошибка", "Введите логин и пароль", "Ок");
@@ -146,6 +222,10 @@ namespace MuzApp
                         else if (u.RoleId == 2)
                         {
                             await Navigation.PushAsync(new AdminPage());
+                        }
+                        else if (u.RoleId == 3)
+                        {
+                            await Navigation.PushAsync(new TeacherPage(u.UserId));
                         }
                         return;
                     }

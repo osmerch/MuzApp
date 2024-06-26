@@ -1,4 +1,5 @@
-﻿using MuzApp.StudentsPage;
+﻿using MuzApp.AdminPages;
+using MuzApp.StudentsPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,11 @@ namespace MuzApp
 
             var lessonpage = new LessonsPage(idStudent);
             var coursespage = new AllCoursesPage(idStudent);
+            //var profilepage = new Profile(idStudent);
 
             Children.Add(new NavigationPage(lessonpage) { Title = "Расписание"});
-            Children.Add(new NavigationPage(coursespage) { Title = "Курсы"});
+            Children.Add(new NavigationPage(coursespage) { Title = "Курсы"}); 
+            //Children.Add(new NavigationPage(profilepage) { Title = "Профиль" });
         }
     }
 }

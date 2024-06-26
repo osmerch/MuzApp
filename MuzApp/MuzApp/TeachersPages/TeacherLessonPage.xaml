@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             
+             x:Class="MuzApp.TeachersPages.TeacherLessonPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                    <GradientStop Color="#3E5151" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#DECBA4" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="85"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.RowSpan="2" VerticalOptions="Start" Margin="0, 15, 0, 0" HeightRequest="51" BackgroundColor="Transparent">
+                <Label Text="Расписание" VerticalOptions="Center"    HorizontalOptions="Center" FontAttributes="Bold" FontSize="21" TextColor="White"></Label>
+            </StackLayout>
+
+            <StackLayout  Grid.Row="1">
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout Orientation="Horizontal" x:Name="HorizontalClendar"></StackLayout>
+                </ScrollView>
+                <Label x:Name="testLabel" FontAttributes="Bold" FontSize="21" HorizontalTextAlignment="Center" TextColor="White"></Label>
+            </StackLayout>
+            <ScrollView Grid.Row="2">
+                <StackLayout x:Name="admlessons" VerticalOptions="FillAndExpand">
+                    <CollectionView x:Name="ItemColl" SelectionMode="Single" SelectionChanged="OnLessonSelected">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Frame CornerRadius="20" Opacity="1" BackgroundColor="{Binding BackgroundColor}" HasShadow="True">
+                                        <StackLayout WidthRequest="340"  HorizontalOptions="Center">
+                                            <Label Text="{Binding CourseName}" FontAttributes="Bold" FontSize="21" TextColor="#4f3129"></Label>
+                                            <Label Text="{Binding TeacherName}" TextColor="#4f3129" FontSize="18"></Label>
+                                            <Label Text="{Binding StartTime}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding Room}" TextColor="#4f3129" FontSize="16"></Label>
+                                            <Label Text="{Binding Status}" TextColor="#4f3129" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

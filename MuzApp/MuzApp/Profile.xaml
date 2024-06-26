@@ -4,12 +4,31 @@
              x:Class="MuzApp.Profile"
              Title="Профиль">
     <ContentPage.Content>
-        <StackLayout Padding="20" Spacing="20">
-            <Label Text="{Binding UserName}" FontSize="24" HorizontalOptions="Center" VerticalOptions="Start" />
-            <Button Text="Изменить личные данные"  />
-            <Button Text="Настройки уведомлений"  />
-            <Button Text="Контакты с музыкальной школой" />
-            <Button Text="Выйти из системы" TextColor="Red" />
-        </StackLayout>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Профиль" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Grid.Row="0"/>
+
+            <Label Text="Имя" FontSize="18" Grid.Row="1"/>
+            <Label x:Name="NameLabel" FontSize="18" Grid.Row="1" Grid.Column="1"/>
+
+            <Label Text="Фамилия" FontSize="18" Grid.Row="2"/>
+            <Label x:Name="SurnameLabel" FontSize="18" Grid.Row="2" Grid.Column="1"/>
+
+            <Label Text="Роль" FontSize="18" Grid.Row="3"/>
+            <Label x:Name="RoleLabel" FontSize="18" Grid.Row="3" Grid.Column="1"/>
+
+            <StackLayout Grid.Row="4" Spacing="20">
+                <Button Text="Изменить личные данные" Clicked="OnEditProfileClicked"/>
+                <Button Text="Информация о школе" Clicked="OnSchoolInfoClicked"/>
+                <Button Text="Выйти" Clicked="OnLogoutClicked"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

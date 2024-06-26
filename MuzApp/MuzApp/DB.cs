@@ -169,5 +169,36 @@ namespace MuzApp
                     return obj;
                 }).ToList();
         }
+
+        public async Task<UserDataAuth> GetUserDataById(int id)
+        {
+            var userData = await firebaseClient
+                .Child("UsersData")
+                .Child(id.ToString())
+                .OnceSingleAsync<UserDataAuth>();
+
+            return userData;
+        }
+
+        public async Task<Student> GetStudentById(int id)
+        {
+            var student = await firebaseClient
+                .Child("Student")
+                .Child(id.ToString())
+                .OnceSingleAsync<Student>();
+
+            return student;
+        }
+
+        public async Task<Teacher> GetTeacherById(int id)
+        {
+            var teacher = await firebaseClient
+                .Child("Teacher")
+                .Child(id.ToString())
+                .OnceSingleAsync<Teacher>();
+
+            return teacher;
+        }
     }
 }
+
